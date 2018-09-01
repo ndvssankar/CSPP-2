@@ -14,7 +14,7 @@ final class Solution {
      * Constant FIFTY 50.
      */
     public static final int FIFTY = 50;
-        
+
     /**
      * Constructs the object.
      */
@@ -44,7 +44,7 @@ final class Solution {
      *
      * @return     Matrix of the rounded elements
      */
-    public static int[][] roundHundred(final int[][] a, final int rows, 
+    public static int[][] roundHundred(final int[][] a, final int rows,
             final int columns) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
