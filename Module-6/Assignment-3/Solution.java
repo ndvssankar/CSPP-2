@@ -26,11 +26,13 @@ final class Solution {
     public static char[] replaceAll(final char[] charArray,
         final char oldChar, final char newChar) {
         char[] newCharArray = new char[charArray.length];
-        for(int i=0; i<charArray.length; i++)
-            if(charArray[i] == oldChar)
+        for(int i=0; i<charArray.length; i++) {
+            if(charArray[i] == oldChar) {
                 newCharArray[i] = newChar;
-            else
-                newCharArray[i] = oldChar;
+            } else {
+                newCharArray[i] = charArray[i];
+            }
+        }
         return newCharArray;
     }
     /**
