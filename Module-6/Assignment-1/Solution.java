@@ -6,6 +6,9 @@ import java.util.Scanner;
  * @author :
  */
 public final class Solution {
+    /**
+     * Nine is a constant.
+     */
     public static final int NINE = 9;
     /**
     * Empty constructor.
