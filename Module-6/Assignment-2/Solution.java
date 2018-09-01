@@ -19,7 +19,7 @@ final class Solution {
      */
     public static int roundToHundered(int n) {
         int diff = 100 - (n % 100);
-        if(diff >= 50) {
+        if (diff >= 50) {
             return n - (100 - diff);
         } else {
             return n + diff;
