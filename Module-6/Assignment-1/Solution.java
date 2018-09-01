@@ -6,6 +6,7 @@ import java.util.Scanner;
  * @author :
  */
 public final class Solution {
+    public static final int NINE = 9;
     /**
     * Empty constructor.
     */
@@ -14,16 +15,19 @@ public final class Solution {
     }
 
     /**
-     * [isOddComposite description]
+     * [isOddComposite description].
      * @param  n [description]
      * @return   [description]
      */
-    public static boolean isOddComposite(int n) {
-        if (n % 2 == 0)
+    public static boolean isOddComposite(final int n) {
+        if (n % 2 == 0) {
             return true;
-        for (int i = 2; i < n; i++)
-            if (n % i == 0)
+        }
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
                 return false;
+            }
+        }
         return true;
     }
     /**
@@ -32,7 +36,7 @@ public final class Solution {
      * @param      n     n value
      */
     public static void oddComposites(final int n) {
-        for (int i = 9; i <= n; i++) {
+        for (int i = NINE; i <= n; i++) {
             if (!isOddComposite(i)) {
                 System.out.println(i);
             }
