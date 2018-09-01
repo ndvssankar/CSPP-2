@@ -6,6 +6,9 @@ import java.util.Scanner;
  * @author : 
  */
 final class Solution {
+    final static int HUNDRED = 100;
+    final static int FIFTY = 50;
+        
     /**
      * Constructs the object.
      */
@@ -13,14 +16,14 @@ final class Solution {
         //not used
     }
     /**
-     * [roundToHundered description]
+     * [roundToHundered description].
      * @param  n [description]
      * @return   [description]
      */
-    public static int roundToHundered(int n) {
-        int diff = 100 - (n % 100);
-        if (diff >= 50) {
-            return n - (100 - diff);
+    public static int roundToHundered(final int n) {
+        int diff = HUNDRED - (n % HUNDRED);
+        if (diff >= FIFTY) {
+            return n - (HUNDRED - diff);
         } else {
             return n + diff;
         }
