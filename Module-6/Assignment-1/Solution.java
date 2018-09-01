@@ -34,7 +34,7 @@ public final class Solution {
     public static void oddComposites(final int n) {
        for(int i=9; i<=n; i++) {
             if(!isOddComposite(i)) {
-                System.out.print(i + " ");
+                System.out.println(i);
             }
        }
     }
