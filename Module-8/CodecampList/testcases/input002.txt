@@ -1,0 +1,15 @@
+14
+add 8
+add 12
+add 97
+print
+add 11
+size
+remove 12
+print
+size
+indexOf 8
+get 2
+indexOf 12
+get 5
+contains 97

@@ -1,0 +1,10 @@
+[8,12,97]
+4
+Invalid Position Exception
+[8,12,97,11]
+4
+0
+97
+1
+-1
+true
