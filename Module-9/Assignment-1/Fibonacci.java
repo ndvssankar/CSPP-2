@@ -21,18 +21,22 @@ public final class Fibonacci {
 
     /**
      * Its a private constructor.
-     * @return [description]
      */
     private Fibonacci() {
 
     }
 
-    /**
+    /*
      * fib is a static method takes a argument n
      * n is the count of the fibonacci numbers to be generated.
      * The method returns a List with the n fibonacci numbers.
      *
      * Look for the hint.txt if some of the testcases fail.
+     */
+    /**
+     * Generates a fib list.
+     * @param  n number of fibonacci numbers.
+     * @return   list of fibonacci numbers.
      */
     public static List fib(final int n) {
         List fib = new List(n);
@@ -49,7 +53,7 @@ public final class Fibonacci {
      * Main method.
      * @param args [description]
      */
-	public static void main(final String[] args) {
+    public static void main(final String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
         System.out.println(fib(n));
