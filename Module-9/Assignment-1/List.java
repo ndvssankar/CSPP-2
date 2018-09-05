@@ -29,6 +29,7 @@ public class List {
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
+    private int[] list;
 
     /*
      * What are the other class variables needed for creating a list?
@@ -53,14 +54,14 @@ public class List {
     // declare a private int size
     // again, don't initialize it here
     // variable initialization should be done in the constructor
+    private int size;
 
     /*
      * The purpose of the constructor is to initialize the
      * class variables with some default values.
      */
     
-    private int[] arr;
-    private int size;
+    
 
     public List() {
 
@@ -69,19 +70,32 @@ public class List {
         // What should be the default values?
         // In the case of the list, it should be empty but
         // it should be initialized with an array size like 10
+        list = new int[10];
 
         // Think about the initial value for size.
         // How many items do we have in the list when you create it?
         // An empty list has how many items?
         // That is the initial value to use for size.
-        arr = new int[10];
         size = 0;
     }
 
-    public List(int initial_capacity) {
-        arr = new int[initial_capacity];
-        size = 0;
-    }
+    /*
+     * Overloaded constructor with list capacity as argument
+     * The default constructor sets the list capacity to 10
+     * So, adding an item when the list size is 10
+     * raises a Index Out of Bounds Exception
+     * There will be some clients of the ADT that will require
+     * the list to contain n elements which is known
+     * at the time of creating the list.
+     * 
+     * The overloaded constructor is a way to initialize a list with
+     * a list capacity of n items where n is given as an argument to
+     * constructor.
+     * 
+     */
+
+    // todo - add an overloaded constructor here
+
     
     /*
      * The add method does what the name suggests.
@@ -95,12 +109,52 @@ public class List {
      * The method returns void (nothing)
      */
     public void add(int item) {
-        // Inserts the specified element at the end of the list.
-        if(size >= arr.length)
-            System.out.println("No space to add the element in to the list...");
-        else
-            arr[size++] = item;
-     }
+        //Inserts the specified element at the end of the list.
+        list[size++] = item;   
+    }
+
+    /**
+     * Add all the elements from the arr which is a parameter and call
+     * the add method for each element of the arr.
+     * @param arr [description]
+     */
+    public void add(int[] arr) {
+        for(int i=0; i<arr.length; i++)
+            add(arr[i]);
+    }
+    // index = 0,1,2,3,4,5
+    // list = [1,2,3,4,5,6,0,0,0,0]
+    // index = 3
+    // item = 8
+    // list = [1,2,3,8,4,5,6,0,0,0]
+
+
+    /**
+     * Insert the element at the specified position.
+     * @param item  to be inserted into the list.
+     * @param index the item to be inserted into this index.
+     */
+    public void add(int item, int index) {
+        for(int i=size; i>index; i--)
+            list[i] = list[i-1];
+        list[index] = item;
+        size++;
+    }
+
+    /**
+     * Count the number of occurances of the item.
+     * @param  item to be counted.
+     * @return      returns the number of occurances the item.
+     */
+    public int count(int item) {
+        int count = 0;
+        for(int i=0; i<size; i++) {
+            if(list[i] == item) {
+                count+=1;
+            }
+        }
+        return count;
+    }
 
     /*
      * The size method returns the value of the size.
@@ -110,7 +164,6 @@ public class List {
      * The method returns an int. Empty list should return 0.
      */
     public int size() {
-        // replace the code below to implement the size method
         return size;
     }
 
@@ -126,7 +179,7 @@ public class List {
      * moved to the left by one position.
      * Here is an example:
      * array = [1,2,3,0,0,0,0,0,0,0]
-     * remove(2) would remove the item 2
+     * remove(1) would remove the item 2 which is at index position 1.
      * But how do you remove the item from an array?
      * Well, the way to remove it is to move all
      * the items, that are to the right of the removed item, to the left
@@ -134,14 +187,17 @@ public class List {
      * array = [1,3,0,0,0,0,0,0,0,0]
      * The method returns void (nothing)
      */
+
     public void remove(int index) {
-        if(index <= 0 || index >= size) {
-            System.out.println("Invalid Position Exception");
-        } else {
-            for(int i=index; i<size; i++)
-                arr[i-1] = arr[i];
-            arr[size] = 0;
+        // write the logic for remove here.
+        // Think about what to do to the size variable.
+        if(index >= 0 && index < size) {
+            for(int i = index; i < size - 1; i++) {
+                list[i] = list[i + 1];
+            }
             size--;
+        } else {
+            System.out.println("Invalid Position Exception");
         }
     }
 
@@ -157,10 +213,11 @@ public class List {
      * number of items in the list? Would size variable be useful?
      */
     public int get(int index) {
-        if(index < 0 || index >= size)
+        if(index < 0 || index >= size) {
             return -1;
-        else
-            return arr[index];
+        } else {
+            return list[index];
+        }
     }
 
     /*
@@ -184,15 +241,19 @@ public class List {
      *
      */
     public String toString() {
-        StringBuffer sb = new StringBuffer();
-        sb.append("[");
-        for(int i=0; i<size-1; i++)
-            sb.append(arr[i] + ",");
-        sb.append(arr[size-1]);
-        sb.append("]");
-        return sb.toString();
-    } 
+        if(size == 0)
+            return "";
+        String str = "[";
+        int i = 0;
+        for(i = 0; i < size - 1; i++) {
+            str = str + list[i] + ",";
+        }
+        str = str + list[i] + "]";
+        return str;
+    }
     
+
+
     /*
      * Contains return true if the list has
      * the item passed as an argument to the method
@@ -200,7 +261,7 @@ public class List {
      * the item exists and otherwise false
      */
     public boolean contains(int item) {
-        return indexOf(item) >= 0;
+        return indexOf(item) == -1;
     }
 
     /*
@@ -209,9 +270,10 @@ public class List {
      * or -1 if this list does not contain the element.
      */
     public int indexOf(int item) {
-        for(int i=0; i<size; i++)
-            if(arr[i] == item)
+        for(int i = 0; i < size; i++) {
+            if(item == list[i])
                 return i;
+        }
         return -1;
     }
 

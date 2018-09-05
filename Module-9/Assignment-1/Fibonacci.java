@@ -27,12 +27,12 @@ public class Fibonacci
      * Look for the hint.txt if some of the testcases fail.
      */
     public static List fib(int n) {
-        // todo - complete this method
-        List fib = new List(n);
+        List fib = new List();
         fib.add(0);
         fib.add(1);
         for(int i=2; i<n; i++) {
-            fib.add(fib.get(i-1) + fib.get(i-2));
+            int newFibNum = fib.get(i-2) + fib.get(i-1);
+            fib.add(newFibNum);
         }
         return fib;
     }
