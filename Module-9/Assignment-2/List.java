@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -93,12 +94,10 @@ public class List {
      * constructor.
      * 
      */
-
-    public List(final int initial_capacity) {
-        list = new int[initial_capacity];
+    public List(int capacity) {
         size = 0;
+        list = new int[capacity];
     }
-
     
     /*
      * The add method does what the name suggests.
@@ -112,59 +111,45 @@ public class List {
      * The method returns void (nothing)
      */
     public void add(int item) {
-        //Inserts the specified element at the end of the list.
-        if(size == list.length) {
-            System.out.println("No space to add an element");
-            return;
-        }
+        if(size == list.length)
+            resize();
+        
         list[size++] = item;
     }
 
-    /**
-     * Add all the elements from the arr which is a parameter and call
-     * the add method for each element of the arr.
-     * @param arr [description]
+    /*
+     *
+     * Resize the list
+     * Sometimes the clients of the ADT won't know the expected list capacity
+     * To solve this the list has to grow dynamically
+     * when the maximum capacity is reached and there is no room to add items.
+     * So, how do we dynamically resize the list?
+     * Java doesn't support resize of array. Here are some options.
+     *
+     * Option 1
+     * Create a new array of the desired size,
+     * and copy the contents from the original array to the new array,
+     * using java.lang.System.arraycopy(...);
+     * 
+     * Option 2
+     * Use java.util.Arrays.copyOf(...) methods which returns a bigger array,
+     * with the contents of the original array.
+     *
+     * TODO
+     * Create a method called resize(). Resize should create an new array that is
+     * double the size of the old array.
+     * Then copy the contents of the old array to the new one.
+     * 
+     * When should the resize method be invoked and from where?
+     * Will the client invoke resize or is it internal to List class?
+     * Should the resize be public method or private?
+     * Should the resize method return any values?
+     * You know enough of Object Oriented Programming to answer these questions :-)
+     *
      */
-    public void add(int[] arr) {
-        for (int i = 0; i < arr.length; i++)
-            add(arr[i]);
-    }
-    // index = 0,1,2,3,4,5
-    // list = [1,2,3,4,5,6,0,0,0,0]
-    // index = 3
-    // item = 8
-    // list = [1,2,3,8,4,5,6,0,0,0]
 
-
-    /**
-     * Insert the element at the specified position.
-     * @param item  to be inserted into the list.
-     * @param index the item to be inserted into this index.
-     */
-    public void add(int item, int index) {
-        if(size == list.length) {
-            System.out.println("No space to add an element");
-            return;
-        }
-        for (int i = size; i > index; i--)
-            list[i] = list[i - 1];
-        list[index] = item;
-        size++;
-    }
-
-    /**
-     * Count the number of occurances of the item.
-     * @param  item to be counted.
-     * @return      returns the number of occurances the item.
-     */
-    public int count(int item) {
-        int count = 0;
-        for (int i = 0; i < size; i++) {
-            if (list[i] == item) {
-                count += 1;
-            }
-        }
-        return count;
+    private void resize() {
+        list = Arrays.copyOf(list, size * 2);
     }
 
     /*
@@ -263,8 +248,6 @@ public class List {
         return str;
     }
     
-
-
     /*
      * Contains return true if the list has
      * the item passed as an argument to the method
@@ -288,7 +271,8 @@ public class List {
         return -1;
     }
 
-public static void main(String[] args) {
+
+    public static void main(String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
 
@@ -319,7 +303,7 @@ public static void main(String[] args) {
                 int temp[]=new int[t1.length];
                 for(int i=0;i<temp.length;i++)
                     temp[i]=Integer.parseInt(t1[i]);
-                l.add(temp);
+                l.addAll(temp);
                 case "size":
                 // invoke size method and print the list size
                 // BTW, list size is not the array size
@@ -347,7 +331,6 @@ public static void main(String[] args) {
             }
         }
     }
-
 
 	// public static void main(String[] args) {
  //        // create an object of the list to invoke methods on it
@@ -389,18 +372,6 @@ public static void main(String[] args) {
  //                break;
  //                case "contains":
  //                System.out.println(l.contains(Integer.parseInt(tokens[1])));
- //                break;
- //                case "addAll":
- //                int[] arr3 = new int[tokens.length-1];
- //                for(int i=0; i<tokens.length-1; i++)
- //                    arr3[i] = Integer.parseInt(tokens[i+1]);
- //                l.add(arr3);
- //                break;
- //                case "count":
- //                System.out.println(l.count(Integer.parseInt(tokens[1])));
- //                break;
- //                case "addAt":
- //                l.add(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
  //                break;
  //            }
  //        }

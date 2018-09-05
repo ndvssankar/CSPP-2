@@ -288,7 +288,7 @@ public class List {
         return -1;
     }
 
-public static void main(String[] args) {
+	public static void main(String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
 
@@ -303,23 +303,8 @@ public static void main(String[] args) {
             // based on the list operation invoke the corresponding method
             switch (tokens[0]) {
                 case "add":
-                String[] t = tokens[1].split(",");
-                if(t.length==1){
                 l.add(Integer.parseInt(tokens[1]));
-                }
-                else{
-                    l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
-                }
                 break;
-                case "count":
-                System.out.println(l.count(Integer.parseInt(tokens[1])));
-                break;
-                case "addAll":
-                String[] t1 = tokens[1].split(",");
-                int temp[]=new int[t1.length];
-                for(int i=0;i<temp.length;i++)
-                    temp[i]=Integer.parseInt(t1[i]);
-                l.add(temp);
                 case "size":
                 // invoke size method and print the list size
                 // BTW, list size is not the array size
@@ -344,65 +329,19 @@ public static void main(String[] args) {
                 case "contains":
                 System.out.println(l.contains(Integer.parseInt(tokens[1])));
                 break;
+                case "addAll":
+                int[] arr3 = new int[tokens.length-1];
+                for(int i=0; i<tokens.length-1; i++)
+                    arr3[i] = Integer.parseInt(tokens[i+1]);
+                l.add(arr3);
+                break;
+                case "count":
+                System.out.println(l.count(Integer.parseInt(tokens[1])));
+                break;
+                case "addAt":
+                l.add(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
+                break;
             }
         }
-    }
-
-
-	// public static void main(String[] args) {
- //        // create an object of the list to invoke methods on it
- //        List l = new List();
-
- //        // code to read the test cases input file
- //        Scanner stdin = new Scanner(new BufferedInputStream(System.in));
- //        // check if there is one more line to process
- //        while (stdin.hasNext()) {
- //            // read the line
- //            String line = stdin.nextLine();
- //            // split the line using space
- //            String[] tokens = line.split(" ");
- //            // based on the list operation invoke the corresponding method
- //            switch (tokens[0]) {
- //                case "add":
- //                l.add(Integer.parseInt(tokens[1]));
- //                break;
- //                case "size":
- //                // invoke size method and print the list size
- //                // BTW, list size is not the array size
- //                // it is the number of items in the list
- //                System.out.println(l.size());
- //                break;
- //                case "print":
- //                // print the list (implement toString for this to work)
- //                // expected format is [item-1,item-2,...,item-n]
- //                // review the output testcase file
- //                System.out.println(l);
- //                break;
- //                case "remove":
- //                l.remove(Integer.parseInt(tokens[1]));
- //                break;
- //                case "indexOf":
- //                System.out.println(l.indexOf(Integer.parseInt(tokens[1])));
- //                break;
- //                case "get":
- //                System.out.println(l.get(Integer.parseInt(tokens[1])));
- //                break;
- //                case "contains":
- //                System.out.println(l.contains(Integer.parseInt(tokens[1])));
- //                break;
- //                case "addAll":
- //                int[] arr3 = new int[tokens.length-1];
- //                for(int i=0; i<tokens.length-1; i++)
- //                    arr3[i] = Integer.parseInt(tokens[i+1]);
- //                l.add(arr3);
- //                break;
- //                case "count":
- //                System.out.println(l.count(Integer.parseInt(tokens[1])));
- //                break;
- //                case "addAt":
- //                l.add(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
- //                break;
- //            }
- //        }
-	// }
+	}
 }

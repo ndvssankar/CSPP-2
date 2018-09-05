@@ -1,0 +1,10 @@
+addAll 1 2 3
+add 7
+print
+count 4
+add 4
+print
+count 4
+addAt 2 3
+print
+addAll 5 6 7 8 9

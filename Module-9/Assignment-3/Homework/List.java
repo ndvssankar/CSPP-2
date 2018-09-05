@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -114,10 +115,13 @@ public class List {
     public void add(int item) {
         //Inserts the specified element at the end of the list.
         if(size == list.length) {
-            System.out.println("No space to add an element");
-            return;
+            resize();
         }
         list[size++] = item;
+    }
+
+    private void resize() {
+        list = Arrays.copyOf(list, size*2);
     }
 
     /**
@@ -129,7 +133,7 @@ public class List {
         for (int i = 0; i < arr.length; i++)
             add(arr[i]);
     }
-    // index = 0,1,2,3,4,5
+    // index = 0,1,2,3,4,5,6
     // list = [1,2,3,4,5,6,0,0,0,0]
     // index = 3
     // item = 8
@@ -141,11 +145,13 @@ public class List {
      * @param item  to be inserted into the list.
      * @param index the item to be inserted into this index.
      */
-    public void add(int item, int index) {
-        if(size == list.length) {
-            System.out.println("No space to add an element");
+    public void add(int index, int item) {
+        if(index < 0) {
+            System.out.println("Negative Index Exception");
             return;
         }
+        if(size == list.length-1)
+            resize();
         for (int i = size; i > index; i--)
             list[i] = list[i - 1];
         list[index] = item;
@@ -253,7 +259,7 @@ public class List {
      */
     public String toString() {
         if(size == 0)
-            return "";
+            return "[]";
         String str = "[";
         int i = 0;
         for(i = 0; i < size - 1; i++) {
@@ -307,19 +313,21 @@ public static void main(String[] args) {
                 if(t.length==1){
                 l.add(Integer.parseInt(tokens[1]));
                 }
-                else{
+                else
                     l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
-                }
                 break;
                 case "count":
                 System.out.println(l.count(Integer.parseInt(tokens[1])));
                 break;
                 case "addAll":
-                String[] t1 = tokens[1].split(",");
-                int temp[]=new int[t1.length];
-                for(int i=0;i<temp.length;i++)
-                    temp[i]=Integer.parseInt(t1[i]);
-                l.add(temp);
+                if(tokens.length == 2) {
+                    String[] t1 = tokens[1].split(",");
+                    int temp[]=new int[t1.length];
+                    for(int i=0;i<temp.length;i++)
+                        temp[i]=Integer.parseInt(t1[i]);
+                    l.add(temp);
+                }
+                break;
                 case "size":
                 // invoke size method and print the list size
                 // BTW, list size is not the array size
