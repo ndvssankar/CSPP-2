@@ -96,7 +96,7 @@ public class List {
      */
     public void add(int item) {
         // Inserts the specified element at the end of the list.
-        if(size >= 10)
+        if(size >= arr.length)
             System.out.println("No space to add the element in to the list...");
         else
             arr[size++] = item;
