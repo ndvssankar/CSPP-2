@@ -32,8 +32,6 @@ public class Fibonacci
         fib.add(0);
         fib.add(1);
         for(int i=2; i<n; i++) {
-            System.out.println(" :: " + fib.get(i-1));
-            System.out.println(" :: " + fib.get(i-2));
             fib.add(fib.get(i-1) + fib.get(i-2));
         }
         return fib;
