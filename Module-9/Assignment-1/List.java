@@ -94,7 +94,10 @@ public class List {
      * 
      */
 
-    // todo - add an overloaded constructor here
+    public List(int initial_capacity) {
+        list = new int[initial_capacity];
+        size = 0;
+    }
 
     
     /*
