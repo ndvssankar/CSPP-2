@@ -77,6 +77,11 @@ public class List {
         arr = new int[10];
         size = 0;
     }
+
+    public List(int initial_capacity) {
+        arr = new int[initial_capacity];
+        size = 0;
+    }
     
     /*
      * The add method does what the name suggests.
