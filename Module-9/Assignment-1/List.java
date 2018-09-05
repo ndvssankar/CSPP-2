@@ -94,7 +94,7 @@ public class List {
      * 
      */
 
-    public List(int initial_capacity) {
+    public List(final int initial_capacity) {
         list = new int[initial_capacity];
         size = 0;
     }
@@ -122,7 +122,7 @@ public class List {
      * @param arr [description]
      */
     public void add(int[] arr) {
-        for(int i=0; i<arr.length; i++)
+        for (int i = 0; i < arr.length; i++)
             add(arr[i]);
     }
     // index = 0,1,2,3,4,5
@@ -138,8 +138,8 @@ public class List {
      * @param index the item to be inserted into this index.
      */
     public void add(int item, int index) {
-        for(int i=size; i>index; i--)
-            list[i] = list[i-1];
+        for (int i = size; i > index; i--)
+            list[i] = list[i - 1];
         list[index] = item;
         size++;
     }
@@ -151,9 +151,9 @@ public class List {
      */
     public int count(int item) {
         int count = 0;
-        for(int i=0; i<size; i++) {
-            if(list[i] == item) {
-                count+=1;
+        for (int i = 0; i < size; i++) {
+            if (list[i] == item) {
+                count += 1;
             }
         }
         return count;
