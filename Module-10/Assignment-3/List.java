@@ -125,13 +125,17 @@ public class List<E> {
      * array = [1,3,0,0,0,0,0,0,0,0]
      * The method returns void (nothing)
      */
+    // list = [1,2,3,4,5,0,0,0,0,0]
+    // index = 3
+    // indexex 0,1,2,3,4,5,6,7,8,9
+    // list = [1,2,3,5,0,0,0,0,0,0]
     public void remove(int idex) {
         if(idex < 0 || idex >= size) {
             System.out.println("Invalid Position Exception");
             return;
         }
-        for(int i = size; i > idex; i--)
-            list[i] = list[i-1];
+        for(int i = idex; i < size-1; i++)
+            list[i] = list[i+1];
         list[size-1] = null;
         size--;
     }
