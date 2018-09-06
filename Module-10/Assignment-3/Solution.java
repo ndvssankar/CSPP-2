@@ -26,6 +26,14 @@ class Student {
         return this.name;
     }
 
+    /**
+     * hashCode implementation.
+     * @return int
+     */
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 
     /**
      * equals method.
@@ -37,8 +45,9 @@ class Student {
         if (!(other instanceof Student)) {
             return false;
         }
-        if(other == this)
+        if (other == this) {
             return true;
+        }
 
         Student that = (Student) other;
         return this.getName().equals(that.getName());
