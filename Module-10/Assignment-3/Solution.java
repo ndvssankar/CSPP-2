@@ -34,7 +34,7 @@ class Student {
      * @param  other Student Object.
      * @return       false if it doesn't match.
      */
-    @Override
+    // @Override
     public boolean equals(final Object other) {
         if (!(other instanceof Student)) {
             return false;
@@ -59,8 +59,8 @@ class Student {
 public final class Solution {
     
     /**
-     * No arg constructor.
-     * @return nothings.
+     * Constructor.
+     * @return nothing.
      */
     private Solution() {
 
