@@ -1,0 +1,24 @@
+S
+addAll a1,b2,c3,d4,e5,f6,g7,h9
+print
+remove 0
+remove 1
+size
+addAll a1,b2,c3,d4,e5,f6,g7,h9
+print
+remove 0
+remove 1
+size
+print
+size
+remove 3
+remove 4
+remove 5
+remove 6
+print
+size
+remove 3
+remove 4
+remove 5
+remove 6
+print

@@ -1,0 +1,27 @@
+D
+22
+size
+remove 5
+remove 4
+remove 3
+addAll 9.01,1212.2
+print
+remove 5
+remove 4
+remove 3
+addAll 9.01,1212.2
+print
+remove -1
+addAll 
+print
+remove 5
+remove 4
+remove 3
+addAll 9.01,1212.2
+print
+remove 2
+remove 1
+print
+remove 0
+print
+size

@@ -1,0 +1,17 @@
+0
+Invalid Position Exception
+Invalid Position Exception
+Invalid Position Exception
+[9.01,1212.2]
+Invalid Position Exception
+Invalid Position Exception
+Invalid Position Exception
+[9.01,1212.2,9.01,1212.2]
+Invalid Position Exception
+[9.01,1212.2,9.01,1212.2]
+Invalid Position Exception
+Invalid Position Exception
+[9.01,1212.2,9.01,9.01,1212.2]
+[9.01,9.01,1212.2]
+[9.01,1212.2]
+2
