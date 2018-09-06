@@ -76,7 +76,7 @@ public final class Solution {
     }
 
     /**
-     * perform float operations
+     * perform float operations.
      * @param stdin scanner.
      */
     public static void performFloat(final Scanner stdin) {
