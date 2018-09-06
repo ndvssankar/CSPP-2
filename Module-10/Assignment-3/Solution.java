@@ -32,11 +32,13 @@ class Student {
      * @param  other Student Object.
      * @return       false if it doesn't match.
      */
-    // @Override
+    @Override
     public boolean equals(final Object other) {
         if (!(other instanceof Student)) {
             return false;
         }
+        if(other == this)
+            return true;
 
         Student that = (Student) other;
         return this.getName().equals(that.getName());
