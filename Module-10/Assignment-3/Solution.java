@@ -13,7 +13,6 @@ class Student {
     /**
      * parameterized constructor.
      * @param  name1 of the student.
-     * @return       nothing.
      */
     protected Student(final String name1) {
         this.name = name1;
@@ -56,10 +55,9 @@ class Student {
  * Solution Client.
  */
 public final class Solution {
-    
+
     /**
      * Constructor.
-     * @return nothing.
      */
     private Solution() {
 
