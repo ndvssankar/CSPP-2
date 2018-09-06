@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
@@ -111,6 +112,8 @@ public class List {
      */
     public void add(int item) {
         //Inserts the specified element at the end of the zelist.
+        if(size == list.length)
+            resize();
         list[size++] = item;   
     }
 
@@ -145,7 +148,9 @@ public class List {
      *
      */
 
-    // todo create resize method
+    private void resize() {
+        list = Arrays.copyOf(list, size*2);
+    }
 
     /*
      * The size method returns the value of the size.
