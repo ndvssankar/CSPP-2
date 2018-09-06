@@ -1,0 +1,16 @@
+13
+add 5
+add 4
+size
+add 0
+add 99
+print
+add 3,9
+add 2,10
+count 9
+size
+print
+addAll 1,2,3
+size
+print
+

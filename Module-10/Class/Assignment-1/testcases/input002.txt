@@ -1,0 +1,13 @@
+11
+count 5
+size
+print
+addAll 1,2,3
+addAll 4,4,4
+count 4
+print
+add 3,5
+add 4,5
+add 5,5
+print
+
