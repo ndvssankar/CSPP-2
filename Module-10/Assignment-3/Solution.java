@@ -10,10 +10,9 @@ class Student {
      * name of the student.
      */
     private String name;
-
     /**
-     * Constructor.
-     * @param  name1 parameter.
+     * parameterized constructor.
+     * @param  name1 of the student.
      * @return       nothing.
      */
     protected Student(final String name1) {
