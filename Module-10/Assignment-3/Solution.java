@@ -12,12 +12,12 @@ class Student {
     private String name;
 
     /**
-     * Student Constructor.
-     * @param  name parameter.
-     * @return      nothing.
+     * Constructor.
+     * @param  name1 parameter.
+     * @return       nothing.
      */
-    protected Student(final String name) {
-        this.name = name;
+    protected Student(final String name1) {
+        this.name = name1;
     }
 
     /**
@@ -56,17 +56,25 @@ class Student {
 /**
  * Solution Client.
  */
-public class Solution {
+public final class Solution {
+    
+    /**
+     * No arg constructor.
+     * @return nothings.
+     */
+    private Solution() {
+
+    }
     /**
      * main method.
      * @param args command line args.
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         // create an object of the list to invoke methods on it
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         String objectType = stdin.nextLine();
 
-        switch(objectType) {
+        switch (objectType) {
             case "S"://This case will be executed for String type list
                 List<String> listString = new List();
                 while (stdin.hasNext()) {
@@ -182,7 +190,7 @@ public class Solution {
                     String line = stdin.nextLine();
                     // split the line using space
                     String[] tokens = line.split(" ");
-                    // based on the list operation invoke 
+                    // based on the list operation invoke
                     // the corresponding method
                     switch (tokens[0]) {
                         case "add":
@@ -191,7 +199,7 @@ public class Solution {
                         case "addAll":
                         if (tokens.length == 2) {
                         String[] t1 = tokens[1].split(",");
-                        Float temp[] = new Float[t1.length];
+                        Float[] temp = new Float[t1.length];
                         for (int i = 0; i < t1.length; i++) {
                             temp[i] = Float.parseFloat(t1[i]);
                         }
@@ -239,7 +247,7 @@ public class Solution {
                     String line = stdin.nextLine();
                     // split the line using space
                     String[] tokens = line.split(" ");
-                    // based on the list operation invoke 
+                    // based on the list operation invoke
                     // the corresponding method
                     switch (tokens[0]) {
                         case "add":
@@ -319,7 +327,8 @@ public class Solution {
                         System.out.println(listDouble.size());
                         break;
                         case "print":
-                        // print the list (implement toString in StringList class
+                        // print the list (implement toString in
+                        // StringList class
                         //for this to work)
                         // expected format is [item-1,item-2,...,item-n]
                         // review the output testcase file
@@ -358,10 +367,10 @@ public class Solution {
                             listStudent.add(new Student(tokens[1]));
                         break;
                         case "addAll":
-                        if(tokens.length==2) {
+                        if (tokens.length == 2) {
                         String[] t1 = tokens[1].split(",");
                         Student[] temp = new Student[t1.length];
-                        for (int i = 0; i < t1.length ;i++ ) {
+                        for (int i = 0; i < t1.length; i++) {
                             temp[i] = new Student(t1[i]);
                         }
                         listStudent.addAll(temp);
