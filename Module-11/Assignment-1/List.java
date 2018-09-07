@@ -236,7 +236,7 @@ public class List {
     */
     public List subList(int start, int end) {
         if ((start >= 0 && end >= 0) &&
-                (end > start) ) {
+                (end >= start) ) {
             if (end == start) {
                 return new List(0);
             } else if (end > start) {
