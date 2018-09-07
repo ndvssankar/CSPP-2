@@ -36,7 +36,7 @@ public class List<E> {
         //You can modify the code in this method.
         if (size == list.length)
             resize();
-            list[(size++)] = item;
+        list[(size++)] = item;
     }
 
     private void resize() {
@@ -129,16 +129,15 @@ public class List<E> {
      *
      */
     public String toString() {
-
         if (size == 0)
             return "[]";
-        String str = "[";
+        StringBuffer sb = new StringBuffer("[");
         int i = 0;
         for (i = 0; i < size - 1; i++) {
-            str = str + list[i] + ",";
+            sb.append(list[i] + ",");
         }
-        str = str + list[i] + "]";
-        return str;
+        sb.append(list[i] + "]");
+        return sb.toString();
     }
     /*
      * Contains return true if the list has
@@ -173,8 +172,7 @@ public class List<E> {
         for (int i = 0; i < newArray.length; i++) {
             int index = indexOf(newArray[i]);
             while (index != -1) {
-                if ( index != -1)
-                    remove(index);
+                remove(index);
                 index = indexOf(newArray[i]);
             }
         }
@@ -186,35 +184,36 @@ public class List<E> {
      indicates the endIndex.
      */
     public List<E> subList(int start, int end) {
-
-        if ((start >= 0 && end >= 0) &&
-                (end >= start) ) {
-            if (end == start) {
-                return new List(0);
-            } else if (end > start) {
-                List<E> subList = new List(end - start);
-                for (int i = start; i < end; i++ )
-                    subList.add(this.list[i]);
-                return subList;
-            } else {
-                System.out.println("Index Out of Bounds Exception");
-                return null;
-            }
-        } else {
+        if(start < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
+        if(end < 0) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if(start > size) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if(end > size) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if(start == end) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        List<E> subList = new List(end - start);
+        for (int i = start; i < end; i++ )
+            subList.add(this.list[i]);
+        return subList;
     }
     /*Returns a boolean indicating whether the parameter
       i.e a List object is exactly matching with the given list or not.
      */
     public boolean equals(List<E> list) {
-        for (int i = 0; i < this.size() ; i++ ) {
-            if (!list.contains(this.get(i))) {
-                return false;
-            }
-        }
-        return true;
+        return this.toString().equals(list.toString());
     }
     /*Removes all the elements from list*/
     public void clear() {
