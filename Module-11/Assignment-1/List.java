@@ -251,7 +251,7 @@ public class List {
     exactly matching with the given list or not.
     */
     public boolean equals(List list ) {
-        return this.toString() == list.toString();
+        return this.toString().equals(list.toString());
     }
     /*
     * Removes all the elements from list
