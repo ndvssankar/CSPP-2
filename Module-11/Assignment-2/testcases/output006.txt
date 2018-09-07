@@ -1,0 +1,7 @@
+2
+[1.0,-1.0]
+Index Out of Bounds Exception
+true
+6
+[1.0,-1.0,0.0,0.0,0.0,-1.0]
+0

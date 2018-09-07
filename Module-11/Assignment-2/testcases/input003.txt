@@ -1,0 +1,15 @@
+C
+13
+add D
+add c
+size
+add -
+add +
+print
+subList 1,3
+subList 2,4
+subList -1,4
+equals c,D,-,+
+equals 5,1,0,9
+size
+print

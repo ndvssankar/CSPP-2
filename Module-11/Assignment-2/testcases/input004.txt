@@ -1,0 +1,16 @@
+S
+14
+add 1a
+add 2b
+size
+print
+add 0c
+add 0d
+add 0e
+add 2f
+subList -1,-1
+equals 1a,2f,0,0,0,2b
+size
+print
+clear
+size

@@ -1,0 +1,16 @@
+I
+14
+add 1
+add -1
+size
+print
+add 0
+add 0
+add 0
+add -1
+subList -1,-1
+equals 1,-1,0,0,0,-1
+size
+print
+clear
+size

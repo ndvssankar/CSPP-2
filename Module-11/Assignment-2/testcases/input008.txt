@@ -1,0 +1,16 @@
+O
+size
+remove 0
+addAll Manjunath,Praveen,Arun,SivaSankar
+size
+print
+addAll Rehana,Rajesh,Deepak,Murthy,Manasa
+subList 0,4
+print
+size
+contains Praveen
+contains MSIT
+remove 7
+remove 6
+contains Murthy
+print

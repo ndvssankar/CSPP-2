@@ -1,0 +1,15 @@
+S
+13
+add 5
+add -1
+size
+add 0
+add 99
+print
+subList 1,3
+subList 2,4
+subList -1,4
+equals 1,2,3,4
+equals 5,-1,0,99
+size
+print
