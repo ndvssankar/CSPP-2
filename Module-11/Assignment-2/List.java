@@ -228,5 +228,6 @@ public class List<E> {
     /*Removes all the elements from list*/
     public void clear() {
         size = 0;
+        list = (E[]) new Object[10];
     }
 }
