@@ -2,6 +2,10 @@ import java.util.Arrays;
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
+/**
+ * Demonstrate the ListADT class.
+ * @author: Siva Sankar
+ */
 public class List implements ListInterface {
     //Implement all the methods mentioned to build a ListADT
 
