@@ -75,7 +75,6 @@ public class List implements ListInterface {
      */
     /**
      * default constructor.
-     * @return nothing is returned.
      */
     public List() {
 
@@ -93,8 +92,7 @@ public class List implements ListInterface {
 
     /**
      * Parameterized constructor.
-     * @param  initial_capacity create an array with this capacity.
-     * @return nothing.
+     * @param  initialCapacity create an array with this capacity.
      */
     public List(final int initialCapacity) {
         list = new int[initialCapacity];
@@ -245,7 +243,7 @@ public class List implements ListInterface {
      * @param  item to find.
      * @return      true if exists, otherwise false.
      */
-    public boolean contains(int item) {
+    public boolean contains(final int item) {
         // Replace the code below
         return indexOf(item) != -1;
     }
@@ -258,11 +256,12 @@ public class List implements ListInterface {
      * @param  item to find.
      * @return      index of the element.
      */
-    public int indexOf(int item) {
+    public int indexOf(final int item) {
         // Replace the code below
         for (int i = 0; i < size; i++) {
-            if (item == list[i])
+            if (item == list[i]) {
                 return i;
+            }
         }
         return -1;
     }
@@ -273,7 +272,7 @@ public class List implements ListInterface {
     * adds all the elements to the list object.
     * @param newArray array elements to be added.
     */
-    public void addAll(int[] newArray) {
+    public void addAll(final int[] newArray) {
         for (int i = 0; i < newArray.length; i++) {
             add(newArray[i]);
         }
@@ -362,10 +361,10 @@ public class List implements ListInterface {
     */
     /**
      * check whether two list objects are equal or not.
-     * @param  list to be checked
+     * @param  lst to be checked.
      * @return      true if they both are equal, otherwise false.
      */
-    public boolean equals(List lst) {
+    public boolean equals(final List lst) {
         // String s1 = this.toString();
         // String s2 = list.toString();
         // if(s1.equals(s2))
