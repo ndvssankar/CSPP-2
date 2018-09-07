@@ -220,8 +220,11 @@ public class List {
     public void removeAll(int[] newArray) {
         for (int i = 0; i < newArray.length; i++) {
             int index = indexOf(newArray[i]);
-            if ( index != -1)
-                remove(index);
+            while(index != -1) {
+                if ( index != -1)
+                    remove(index);
+                index = indexOf(newArray[i]);
+            }
         }
     }
     /*
