@@ -221,8 +221,7 @@ public class List {
         for (int i = 0; i < newArray.length; i++) {
             int index = indexOf(newArray[i]);
             while(index != -1) {
-                if ( index != -1)
-                    remove(index);
+                remove(index);
                 index = indexOf(newArray[i]);
             }
         }
@@ -236,18 +235,12 @@ public class List {
     */
     public List subList(int start, int end) {
         if ((start >= 0 && end >= 0) &&
-                (end >= start) ) {
-            if (end == start) {
-                return new List(0);
-            } else if (end > start) {
-                List subList = new List(end - start);
-                for (int i = start; i < end; i++ )
-                    subList.add(this.list[i]);
-                return subList;
-            } else {
-                System.out.println("Index Out of Bounds Exception");
-                return null;
-            }
+                (end >= start) &&
+                (end <= size)) {
+            List subList = new List(end - start);
+            for (int i = start; i < end; i++ )
+                subList.add(this.list[i]);
+            return subList;
         } else {
             System.out.println("Index Out of Bounds Exception");
             return null;
@@ -258,13 +251,7 @@ public class List {
     exactly matching with the given list or not.
     */
     public boolean equals(List list ) {
-        // Replace the code below
-        for (int i = 0; i < this.size() ; i++ ) {
-            if (!list.contains(this.get(i))) {
-                return false;
-            }
-        }
-        return true;
+        return this.toString() == list.toString();
     }
     /*
     * Removes all the elements from list
@@ -272,7 +259,6 @@ public class List {
     * the simpler.
     */
     public void clear() {
-        // write the logic for clear.
         size = 0;
     }
 
