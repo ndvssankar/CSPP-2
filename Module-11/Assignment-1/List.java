@@ -31,10 +31,16 @@ public class List implements ListInterface {
      *
     */
 
+    /**
+     * TEN indicates the constatn.
+     */
     public final int TEN = 10;
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
+    /**
+     * to handle the int elements of this list.
+     */
     private int[] list;
     /*
      * What are the other class variables needed for creating a list?
@@ -59,6 +65,9 @@ public class List implements ListInterface {
     // declare a private int size
     // again, don't initialize it here
     // variable initialization should be done in the constructor
+    /**
+     * size indicates the number of elements in the list.
+     */
     private int size;
     /*
      * The purpose of the constructor is to initialize the class variables with
@@ -66,7 +75,7 @@ public class List implements ListInterface {
      */
     /**
      * default constructor.
-     * @return nothing.
+     * @return nothing is returned.
      */
     public List() {
 
@@ -74,7 +83,7 @@ public class List implements ListInterface {
         // private variables described above. What should be the default values?
         // In the case of the list, it should be empty but it should be
         // initialized with an array size like 10
-        list = new int[10];
+        list = new int[TEN];
         // Think about the initial value for size.
         // How many items do we have in the list when you create it?
         // An empty list has how many items?
@@ -85,10 +94,10 @@ public class List implements ListInterface {
     /**
      * Parameterized constructor.
      * @param  initial_capacity create an array with this capacity.
-     * @return                  nothing.
+     * @return nothing.
      */
-    public List(final int initial_capacity) {
-        list = new int[initial_capacity];
+    public List(final int initialCapacity) {
+        list = new int[initialCapacity];
         size = 0;
     }
     /*
@@ -103,7 +112,7 @@ public class List implements ListInterface {
      * add item to the list.
      * @param item as parameter.
      */
-    public void add(int item) {
+    public void add(final int item) {
         //Inserts the specified element at the end of the list.
         if (size == list.length) {
             resize();
@@ -139,7 +148,7 @@ public class List implements ListInterface {
      * @param index as parameter.
      * @param item  as parameter.
      */
-    public void add(int index, int item) {
+    public void add(final int index, final int item) {
         return;
     }
     /*
@@ -160,7 +169,7 @@ public class List implements ListInterface {
      * remove element at index.
      * @param index as parameter.
      */
-    public void remove(int index) {
+    public void remove(final int index) {
         // write the logic for remove here. Think about what to do to the size
         // variable.
         if (index >= 0 && index < size) {
@@ -187,7 +196,7 @@ public class List implements ListInterface {
      * @param  index as parameter.
      * @return       item at this index.
      */
-    public int get(int index) {
+    public int get(final int index) {
         // Replace the code below to write the code for get
         if (index < 0 || index >= size) {
             return -1;
@@ -215,8 +224,9 @@ public class List implements ListInterface {
      */
     public String toString() {
         // Replace the code below
-        if (size == 0)
+        if (size == 0) {
             return "[]";
+        }
         StringBuffer sb = new StringBuffer("[");
         int i = 0;
         for (i = 0; i < size - 1; i++) {
@@ -280,7 +290,7 @@ public class List implements ListInterface {
      * object which are contained in the newArray.
      * @param newArray parameter.
      */
-    public void removeAll(int[] newArray) {
+    public void removeAll(final int[] newArray) {
         for (int i = 0; i < newArray.length; i++) {
             int index = indexOf(newArray[i]);
             while (index != -1) {
@@ -311,8 +321,8 @@ public class List implements ListInterface {
     * @param  end   indicates teh end index.
     * @return       returns the sublist.
     */
-    public List subList(int start, int end) {
-        if ( start < 0 || end < 0) {
+    public List subList(final int start, final int end) {
+        if (start < 0 || end < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
@@ -341,8 +351,9 @@ public class List implements ListInterface {
         // subList(2,5)
         // subList(0,0)
         List lst = new List(end - start);
-        for (int i = start; i < end; i++)
+        for (int i = start; i < end; i++) {
             lst.add(this.get(i));
+        }
         return lst;
     }
     /*
@@ -354,13 +365,13 @@ public class List implements ListInterface {
      * @param  list to be checked
      * @return      true if they both are equal, otherwise false.
      */
-    public boolean equals(List list ) {
+    public boolean equals(List lst) {
         // String s1 = this.toString();
         // String s2 = list.toString();
         // if(s1.equals(s2))
         //     return true;
         // return false;
-        return this.toString().equals(list.toString());
+        return this.toString().equals(lst.toString());
     }
     /*
     * Removes all the elements from list
@@ -379,7 +390,7 @@ public class List implements ListInterface {
      * main method to demonstrate ListADT operations.
      * @param args command line input.
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
 
@@ -450,7 +461,7 @@ public class List implements ListInterface {
                     l.removeAll(a);
                 }
                 break;
-            case "subList": {
+            case "subList":
                 if (tokens.length != 2) {
                     break;
                 }
@@ -461,7 +472,6 @@ public class List implements ListInterface {
                     System.out.println(object);
                 }
                 break;
-            }
             case "equals":
                 if (tokens.length == 2) {
                     String[] lt = tokens[1].split(",");
