@@ -232,8 +232,8 @@ public class List {
     and also if start is greater than end.
     */
     public List subList(int start, int end) {
-        if ((start >= 0 && end >= 0) ||
-                (start < size && end < size) ) {
+        if ((start >= 0 && end >= 0) &&
+                (end > start) ) {
             if (end == start) {
                 return new List(0);
             } else if (end > start) {
