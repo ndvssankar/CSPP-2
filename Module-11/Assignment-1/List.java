@@ -31,6 +31,7 @@ public class List implements ListInterface {
      *
     */
 
+    public final int TEN = 10;
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
@@ -63,6 +64,10 @@ public class List implements ListInterface {
      * The purpose of the constructor is to initialize the class variables with
      * some default values.
      */
+    /**
+     * default constructor.
+     * @return nothing.
+     */
     public List() {
 
         // what are the two variables to be initialized here? think about the
@@ -94,6 +99,10 @@ public class List implements ListInterface {
      *
      * The method returns void (nothing)
      */
+    /**
+     * add item to the list.
+     * @param item as parameter.
+     */
     public void add(int item) {
         //Inserts the specified element at the end of the list.
         if (size == list.length) {
@@ -102,6 +111,9 @@ public class List implements ListInterface {
         list[size++] = item;
     }
 
+    /**
+     * resize the array by double when it reaches the length.
+     */
     private void resize() {
         list = Arrays.copyOf(list, size * 2);
     }
@@ -113,12 +125,20 @@ public class List implements ListInterface {
      * The method returns an int. Empty list should return 0.
      *
      */
+    /**
+     * returns the size of the list.
+     * @return size of the list.
+     */
     public int size() {
         // replace the code below to implement the size method
         return size;
     }
 
-
+    /**
+     * add item at index.
+     * @param index as parameter.
+     * @param item  as parameter.
+     */
     public void add(int index, int item) {
         return;
     }
@@ -135,6 +155,10 @@ public class List implements ListInterface {
      * removed item, to the left So, the new array looks like this. array =
      * [1,3,0,0,0,0,0,0,0,0] The method returns void (nothing)
      *
+     */
+    /**
+     * remove element at index.
+     * @param index as parameter.
      */
     public void remove(int index) {
         // write the logic for remove here. Think about what to do to the size
@@ -158,6 +182,11 @@ public class List implements ListInterface {
      * exist. How do we check if the position is greater than the number of
      * items in the list? Would size variable be useful?
      */
+    /**
+     * get the element at the index.
+     * @param  index as parameter.
+     * @return       item at this index.
+     */
     public int get(int index) {
         // Replace the code below to write the code for get
         if (index < 0 || index >= size) {
@@ -180,6 +209,10 @@ public class List implements ListInterface {
      * Example: [1,2,3,0,0,0,0,0,0,0] toString should only return the items in
      * the list and not all the elements of the array.
      */
+    /**
+     * string version of the object.
+     * @return string to be returned from the method.
+     */
     public String toString() {
         // Replace the code below
         if (size == 0)
@@ -197,6 +230,11 @@ public class List implements ListInterface {
      * the method So, iterate through the list and return true if the item
      * exists and otherwise false
      */
+    /**
+     * check whether the item is there in the list or not.
+     * @param  item to find.
+     * @return      true if exists, otherwise false.
+     */
     public boolean contains(int item) {
         // Replace the code below
         return indexOf(item) != -1;
@@ -204,6 +242,11 @@ public class List implements ListInterface {
     /*
      * Returns the index of the first occurrence of the specified element in
      * this list, or -1 if this list does not contain the element.
+     */
+    /**
+     * returns the index of the element.
+     * @param  item to find.
+     * @return      index of the element.
      */
     public int indexOf(int item) {
         // Replace the code below
@@ -215,6 +258,10 @@ public class List implements ListInterface {
     }
     /*
     Inserts all the elements of specified int array to the end of list
+    */
+   /**
+    * adds all the elements to the list object.
+    * @param newArray array elements to be added.
     */
     public void addAll(int[] newArray) {
         for (int i = 0; i < newArray.length; i++) {
@@ -228,6 +275,11 @@ public class List implements ListInterface {
 
     // list = [1,2,3,4,5,1,2,3,4,5,11]
     // newArray = [3,2,1,4,5]
+    /**
+     * removes all the occurances of the elements in the list
+     * object which are contained in the newArray.
+     * @param newArray parameter.
+     */
     public void removeAll(int[] newArray) {
         for (int i = 0; i < newArray.length; i++) {
             int index = indexOf(newArray[i]);
@@ -253,6 +305,12 @@ public class List implements ListInterface {
     Caution:
     If szie > 0 and if start and end are equal, return empty list.
     */
+   /**
+    * returns the portion of the list elements.
+    * @param  start indicates the start index.
+    * @param  end   indicates teh end index.
+    * @return       returns the sublist.
+    */
     public List subList(int start, int end) {
         if ( start < 0 || end < 0) {
             System.out.println("Index Out of Bounds Exception");
@@ -267,14 +325,14 @@ public class List implements ListInterface {
         }
         // list = [1,2,3,4,5]
         // subList(4,2)
-        if ( start > end ) {
+        if (start > end) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
 
         // list = []
         // subList(0,0)
-        if ( start == end) {
+        if (start == end) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
@@ -291,6 +349,11 @@ public class List implements ListInterface {
     Returns a boolean indicating whether the parameter i.e a List object is
     exactly matching with the given list or not.
     */
+    /**
+     * check whether two list objects are equal or not.
+     * @param  list to be checked
+     * @return      true if they both are equal, otherwise false.
+     */
     public boolean equals(List list ) {
         // String s1 = this.toString();
         // String s2 = list.toString();
@@ -304,11 +367,18 @@ public class List implements ListInterface {
     * Think about this case and make the method
     * the simpler.
     */
+    /**
+     * removes all the elements from the list object.
+     */
     public void clear() {
         size = 0;
-        list = new int[10];
+        list = new int[TEN];
     }
 
+    /**
+     * main method to demonstrate ListADT operations.
+     * @param args command line input.
+     */
     public static void main(String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
@@ -374,25 +444,29 @@ public class List implements ListInterface {
                 if (tokens.length == 2) {
                     String[] t2 = tokens[1].split(",");
                     int[] a = new int[t2.length];
-                    for (int i = 0; i < t2.length; i++)
+                    for (int i = 0; i < t2.length; i++) {
                         a[i] = Integer.parseInt(t2[i]);
+                    }
                     l.removeAll(a);
                 }
                 break;
             case "subList": {
-                if (tokens.length != 2) break;
+                if (tokens.length != 2) {
+                    break;
+                }
                 String[] arrstring3 = tokens[1].split(",");
                 List object = l.subList(Integer.parseInt(arrstring3[0]),
                                         Integer.parseInt(arrstring3[1]));
-                if (object != null)
+                if (object != null) {
                     System.out.println(object);
+                }
                 break;
             }
             case "equals":
                 if (tokens.length == 2) {
                     String[] lt = tokens[1].split(",");
                     List l2 = new List();
-                    for (int k = 0; k < lt.length; k++ ) {
+                    for (int k = 0; k < lt.length; k++) {
                         l2.add(Integer.parseInt(lt[k]));
                     }
                     System.out.println(l.equals(l2));
