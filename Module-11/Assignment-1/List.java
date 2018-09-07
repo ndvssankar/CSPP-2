@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
-public class List {
+public class List implements ListInterface {
     //Implement all the methods mentioned to build a ListADT
 
     /*
@@ -114,6 +114,10 @@ public class List {
         return size;
     }
 
+
+    public void add(int index, int item) {
+        return;
+    }
     /*
      * The remove method does what the name suggests. Removes an int item,
      * specified by the index argument, from the list It also does an additional
@@ -246,7 +250,6 @@ public class List {
     If szie > 0 and if start and end are equal, return empty list.
     */
     public List subList(int start, int end) {
-
         if ( start < 0 || end < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;

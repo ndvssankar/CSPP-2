@@ -473,12 +473,12 @@ public class Solution {
 
         switch(objectType) {
         	case "S"://This case will be executed for String type list
-        		executeListString(stdin);
-	        break;
+        	   executeListString(stdin);
+	           break;
 
 	        case "I"://This case will be executed for Integer type list
 	        	executeListInteger(stdin);
-	        break;
+	           break;
 
 	        case "F"://This case will be executed for Float type list
 	            executeListFloat(stdin);
