@@ -1,0 +1,7 @@
+[a,b,c,d,e,f,g,h]
+6
+[b,a,d,e,f,g,h]
+7
+Invalid Position Exception
+Invalid Position Exception
+[b,a,d,f,h]

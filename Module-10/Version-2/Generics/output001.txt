@@ -1,0 +1,10 @@
+[a1,b2,c3,d4,e5,f6,g7,h9]
+6
+[b2,d4,e5,f6,g7,h9,a1,b2,c3,d4,e5,f6,g7,h9]
+12
+[d4,f6,g7,h9,a1,b2,c3,d4,e5,f6,g7,h9]
+12
+[d4,f6,g7,a1,c3,e5,g7,h9]
+8
+Invalid Position Exception
+[d4,f6,g7,c3,g7]

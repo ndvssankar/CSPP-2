@@ -1,0 +1,12 @@
+0
+0
+Invalid Position Exception
+[null]
+null
+Negative Array Size Exception
+[h]
+[h]
+[a,b,c,d,e,f,g,h,i,j0]
+[j0]
+Invalid Position Exception
+[j0]

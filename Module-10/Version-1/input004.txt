@@ -1,0 +1,27 @@
+26
+size
+count a
+remove -1
+addAll 
+print
+get -100
+add -34,r100
+add 0,h
+print
+remove 0
+print
+addAll a,b,c,d,e,f,g,h,i,j0,k
+print
+remove 0
+remove 0
+remove 0
+remove 0
+remove 0
+remove 0
+remove 0
+remove 0
+remove 0
+remove 0
+print
+remove 0
+print

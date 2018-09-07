@@ -1,7 +1,8 @@
+import java.util.Arrays;
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
-public class List {
+public class List<E> {
 	//Implement all the methods mentioned to build a ListADT
 
     /*
@@ -29,7 +30,7 @@ public class List {
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
-    private int[] list;
+    private E[] list;
 
     /*
      * What are the other class variables needed for creating a list?
@@ -70,7 +71,7 @@ public class List {
         // What should be the default values?
         // In the case of the list, it should be empty but
         // it should be initialized with an array size like 10
-        list = new int[10];
+        list = (E[])new Object[10];
 
         // Think about the initial value for size.
         // How many items do we have in the list when you create it?
@@ -95,7 +96,7 @@ public class List {
      */
 
     public List(final int initial_capacity) {
-        list = new int[initial_capacity];
+        list = (E[])new Object[initial_capacity];
         size = 0;
     }
 
@@ -111,13 +112,16 @@ public class List {
      * 
      * The method returns void (nothing)
      */
-    public void add(int item) {
+    public void add(E item) {
         //Inserts the specified element at the end of the list.
         if(size == list.length) {
-            System.out.println("No space to add an element");
-            return;
+            resize();
         }
         list[size++] = item;
+    }
+
+    private void resize() {
+        list = Arrays.copyOf(list, size*2);
     }
 
     /**
@@ -125,11 +129,11 @@ public class List {
      * the add method for each element of the arr.
      * @param arr [description]
      */
-    public void add(int[] arr) {
+    public void addAll(E[] arr) {
         for (int i = 0; i < arr.length; i++)
             add(arr[i]);
     }
-    // index = 0,1,2,3,4,5
+    // index = 0,1,2,3,4,5,6
     // list = [1,2,3,4,5,6,0,0,0,0]
     // index = 3
     // item = 8
@@ -141,11 +145,13 @@ public class List {
      * @param item  to be inserted into the list.
      * @param index the item to be inserted into this index.
      */
-    public void add(int item, int index) {
-        if(size == list.length) {
-            System.out.println("No space to add an element");
+    public void add(int index, E item) {
+        if(index < 0) {
+            System.out.println("Negative Index Exception");
             return;
         }
+        if(size == list.length-1)
+            resize();
         for (int i = size; i > index; i--)
             list[i] = list[i - 1];
         list[index] = item;
@@ -157,10 +163,10 @@ public class List {
      * @param  item to be counted.
      * @return      returns the number of occurances the item.
      */
-    public int count(int item) {
+    public int count(E item) {
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (list[i] == item) {
+            if (list[i].equals(item)) {
                 count += 1;
             }
         }
@@ -223,9 +229,9 @@ public class List {
      * How do we check if the position is greater than the 
      * number of items in the list? Would size variable be useful?
      */
-    public int get(int index) {
-        if(index < 0 || index >= size) {
-            return -1;
+    public E get(int index) {
+        if(index >= size) {
+            return null;
         } else {
             return list[index];
         }
@@ -253,14 +259,14 @@ public class List {
      */
     public String toString() {
         if(size == 0)
-            return "";
-        String str = "[";
+            return "[]";
+        StringBuffer sb = new StringBuffer("[");
         int i = 0;
         for(i = 0; i < size - 1; i++) {
-            str = str + list[i] + ",";
+            sb.append(list[i] + ",");
         }
-        str = str + list[i] + "]";
-        return str;
+        sb.append(list[i] + "]");
+        return sb.toString();
     }
     
 
@@ -271,7 +277,7 @@ public class List {
      * So, iterate through the list and return true if
      * the item exists and otherwise false
      */
-    public boolean contains(int item) {
+    public boolean contains(E item) {
         return indexOf(item) != -1;
     }
 
@@ -280,9 +286,9 @@ public class List {
      * of the specified element in this list,
      * or -1 if this list does not contain the element.
      */
-    public int indexOf(int item) {
+    public int indexOf(E item) {
         for(int i = 0; i < size; i++) {
-            if(item == list[i])
+            if(item.equals(list[i]))
                 return i;
         }
         return -1;
@@ -290,7 +296,7 @@ public class List {
 
 public static void main(String[] args) {
         // create an object of the list to invoke methods on it
-        List l = new List();
+        List<String> l = new List();
 
         // code to read the test cases input file
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
@@ -305,21 +311,20 @@ public static void main(String[] args) {
                 case "add":
                 String[] t = tokens[1].split(",");
                 if(t.length==1){
-                l.add(Integer.parseInt(tokens[1]));
+                l.add(tokens[1]);
                 }
-                else{
-                    l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
-                }
+                else
+                    l.add(Integer.parseInt(t[0]),t[1]);
                 break;
                 case "count":
-                System.out.println(l.count(Integer.parseInt(tokens[1])));
+                System.out.println(l.count(tokens[1]));
                 break;
                 case "addAll":
-                String[] t1 = tokens[1].split(",");
-                int temp[]=new int[t1.length];
-                for(int i=0;i<temp.length;i++)
-                    temp[i]=Integer.parseInt(t1[i]);
-                l.add(temp);
+                if(tokens.length == 2) {
+                    String[] t1 = tokens[1].split(",");
+                    l.addAll(t1);
+                }
+                break;
                 case "size":
                 // invoke size method and print the list size
                 // BTW, list size is not the array size
@@ -336,13 +341,13 @@ public static void main(String[] args) {
                 l.remove(Integer.parseInt(tokens[1]));
                 break;
                 case "indexOf":
-                System.out.println(l.indexOf(Integer.parseInt(tokens[1])));
+                System.out.println(l.indexOf(tokens[1]));
                 break;
                 case "get":
                 System.out.println(l.get(Integer.parseInt(tokens[1])));
                 break;
                 case "contains":
-                System.out.println(l.contains(Integer.parseInt(tokens[1])));
+                System.out.println(l.contains(tokens[1]));
                 break;
             }
         }

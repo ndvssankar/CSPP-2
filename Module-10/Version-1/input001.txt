@@ -1,0 +1,13 @@
+addAll a,b,c,d,e,f,g,h
+print
+remove 0
+remove 1
+size
+add 1,a
+print
+size
+remove 3
+remove 4
+remove 5
+remove 6
+print

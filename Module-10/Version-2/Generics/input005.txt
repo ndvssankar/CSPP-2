@@ -1,0 +1,38 @@
+F
+22
+size
+remove -1
+addAll 
+print
+print
+remove 0
+print
+addAll 1.2,2.3,3.4,4.5,5.6,6.7,7.8
+print
+addAll 9.01,1212.2
+print
+remove 2
+remove 1
+print
+remove 0
+addAll 1.2,2.3,3.4,4.5,5.6,6.7,7.8
+print
+addAll 9.01,1212.2
+print
+remove 2
+remove 1
+print
+remove 0
+addAll 1.2,2.3,3.4,4.5,5.6,6.7,7.8
+print
+addAll 9.01,1212.2
+print
+remove 2
+remove 1
+print
+remove 0
+remove 5
+remove 4
+remove 3
+print
+size

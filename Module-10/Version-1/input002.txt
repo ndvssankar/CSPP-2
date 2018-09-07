@@ -1,0 +1,16 @@
+13
+add r
+add e
+size
+add t
+add c
+print
+add 3,b
+add 2,a
+count a
+size
+print
+addAll a,b,c
+size
+print
+
