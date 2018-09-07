@@ -34,7 +34,7 @@ public class List implements ListInterface {
     /**
      * TEN indicates the constatn.
      */
-    public final int TEN = 10;
+    public static final int TEN = 10;
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
