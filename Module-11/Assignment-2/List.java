@@ -182,25 +182,35 @@ public class List<E> {
      startIndex and excluding endIndex. The first parameter
      indicates the startIndex and the second parameter
      indicates the endIndex.
+     Return null and print "Index Out of Bounds Exception" if
+        start and end parameters are invalid
+    eg: [3, 2] start is greater than the end
+        [-3, -4] start and end are negative
+        If List has one Element
+        [1, 3] is Out of Bounds, as size is One
+        Given an empty list
+        [0, 0] is Out of Bounds, as size is zero
+    Caution: If size > 0 and if start and end are equal then
+    sublist should be empty
      */
     public List<E> subList(int start, int end) {
-        if(start < 0) {
+        if (start < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(end < 0) {
+        if (end < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(start > size) {
+        if (start > size) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(end > size) {
+        if (end > size) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(start == end) {
+        if (start == end) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }

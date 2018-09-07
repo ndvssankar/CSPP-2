@@ -3,7 +3,7 @@
 [c,-]
 [-,+]
 Index Out of Bounds Exception
-true
+false
 false
 4
 [D,c,-,+]
