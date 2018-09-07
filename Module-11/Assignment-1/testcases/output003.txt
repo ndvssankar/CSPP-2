@@ -1,0 +1,10 @@
+[]
+[0]
+Index Out of Bounds Exception
+0
+[]
+[]
+0
+true
+[1,2,3,4]
+false
