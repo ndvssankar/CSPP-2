@@ -217,10 +217,13 @@ public class List {
      Removes all of its elements that are contained in the specified int
      array.
     */
+
+    // list = [1,2,3,4,5,1,2,3,4,5,11]
+    // newArray = [3,2,1,4,5]
     public void removeAll(int[] newArray) {
         for (int i = 0; i < newArray.length; i++) {
             int index = indexOf(newArray[i]);
-            while(index != -1) {
+            while (index != -1) {
                 remove(index);
                 index = indexOf(newArray[i]);
             }
@@ -233,7 +236,7 @@ public class List {
     second parameter indicates the endIndex. Returns null.
 
     Print "Index Out of Bounds Exception" if start and end are invalid.
-    
+
     Example 1: [3, 2] start is greater than end
     Example 2: [-1, -1] start and end are negative.
     Given an empty list..
@@ -243,36 +246,50 @@ public class List {
     If szie > 0 and if start and end are equal, return empty list.
     */
     public List subList(int start, int end) {
-        if(start < 0) {
+
+        if ( start < 0 || end < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(end < 0) {
+
+        // list = [1,2,3,4,5]
+        // subList(2,6)
+        if (start > size || end > size) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(start > size) {
+        // list = [1,2,3,4,5]
+        // subList(4,2)
+        if ( start > end ) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(end > size) {
+
+        // list = []
+        // subList(0,0)
+        if ( start == end) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
-        if(start == end) {
-            System.out.println("Index Out of Bounds Exception");
-            return null;
-        }
-        List subList = new List(end - start);
-        for (int i = start; i < end; i++ )
-            subList.add(this.list[i]);
-        return subList;
+
+        // list = [1,2,3,4,5,6,7]
+        // subList(2,5)
+        // subList(0,0)
+        List lst = new List(end - start);
+        for (int i = start; i < end; i++)
+            lst.add(this.get(i));
+        return lst;
     }
     /*
     Returns a boolean indicating whether the parameter i.e a List object is
     exactly matching with the given list or not.
     */
     public boolean equals(List list ) {
+        // String s1 = this.toString();
+        // String s2 = list.toString();
+        // if(s1.equals(s2))
+        //     return true;
+        // return false;
         return this.toString().equals(list.toString());
     }
     /*
@@ -282,6 +299,7 @@ public class List {
     */
     public void clear() {
         size = 0;
+        list = new int[10];
     }
 
     public static void main(String[] args) {
