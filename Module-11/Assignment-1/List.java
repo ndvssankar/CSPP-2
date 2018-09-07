@@ -227,11 +227,20 @@ public class List {
         }
     }
     /*
-    Returns a list object containing elements, including startIndex and
-    excluding endIndex. The first parameter indicates the startIndex and the
-    second parameter indicates the endIndex. Returns null and print
-    "Index Out of Bounds Exception" if any of values start and end are negative
-    and also if start is greater than end.
+    Returns a list object containing elements,
+    including startIndex and excluding endIndex.
+    The first parameter indicates the startIndex and the
+    second parameter indicates the endIndex. Returns null.
+
+    Print "Index Out of Bounds Exception" if start and end are invalid.
+    
+    Example 1: [3, 2] start is greater than end
+    Example 2: [-1, -1] start and end are negative.
+    Given an empty list..
+    Example 3: [1, 3] are out of bounds as size is 0.
+    Example 4: [0, 0] is also an out of bounds.
+    Caution:
+    If szie > 0 and if start and end are equal, return empty list.
     */
     public List subList(int start, int end) {
         if(start < 0) {
@@ -248,10 +257,6 @@ public class List {
         }
         if(end > size) {
             System.out.println("Index Out of Bounds Exception");
-            return null;
-        }
-        if(start == end) {
-            System.out.println("[]");
             return null;
         }
         List subList = new List(end - start);
