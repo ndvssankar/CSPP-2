@@ -234,17 +234,30 @@ public class List {
     and also if start is greater than end.
     */
     public List subList(int start, int end) {
-        if ((start >= 0 && end >= 0) &&
-                (end >= start) &&
-                (end <= size)) {
-            List subList = new List(end - start);
-            for (int i = start; i < end; i++ )
-                subList.add(this.list[i]);
-            return subList;
-        } else {
+        if(start < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
         }
+        if(end < 0) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if(start > size) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if(end > size) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if(start == end) {
+            System.out.println("[]");
+            return null;
+        }
+        List subList = new List(end - start);
+        for (int i = start; i < end; i++ )
+            subList.add(this.list[i]);
+        return subList;
     }
     /*
     Returns a boolean indicating whether the parameter i.e a List object is
