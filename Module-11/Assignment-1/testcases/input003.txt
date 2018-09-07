@@ -3,7 +3,7 @@ subList 2,3
 subList 3,2
 size
 print
-removeAll 
+removeAll
 print
 size
 addAll 1,2,3,4
