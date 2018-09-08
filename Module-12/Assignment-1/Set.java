@@ -129,6 +129,8 @@ public class Set {
     public int[][] cartesianProduct(Set other) {
         int [][] result = new int[this.size() * other.size()][2];
         int k = -1;
+        if (this.size() == 0 || other.size() == 0)
+            return null;
         for(int i=0; i<this.size(); i++) {
             for(int j=0; j<other.size(); j++) {
                 result[++k][0] = this.get(i);
