@@ -1,0 +1,6 @@
+intersection [1,2,3,4,5] [1,4,3]
+intersection [] [1,4,3]
+intersection [1,2,3,4,5] []
+intersection [1,4,3] [1,4,3]
+intersection [1,2,3,4,5] [6,7,8]
+intersection [1] [1]

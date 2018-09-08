@@ -1,0 +1,27 @@
+size
+contains 1
+print
+add 1
+size
+contains 1
+print
+add 2
+size
+contains 1
+contains 3
+print
+add [1,2,3,4,5]
+size
+contains 1
+contains 13
+print
+add []
+size
+contains 1
+contains 15
+print
+add [1,1,2,3,2,3,4,4,5,5,7]
+size
+contains 1
+contains 25
+print
