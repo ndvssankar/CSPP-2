@@ -1,0 +1,16 @@
+15
+addAll -1,-2,3,-7,-9,6,9
+print
+subSet -2,6
+subSet -6,9
+subSet -2,10
+subSet 4,10
+subSet 10,4
+headSet 6
+headSet 100
+headSet -10
+print
+last
+addAll 3,19,-9,-2,-1,2,3,3,2
+last
+print
