@@ -38,7 +38,7 @@ public class SortedSet extends Set {
 
     public int getIndex(int item) {
         for(int i = 0; i < size(); i++) {
-            if (item < this.get(i)) {
+            if (item <= this.get(i)) {
                 return i;
             }
         }
