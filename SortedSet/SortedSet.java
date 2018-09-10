@@ -12,8 +12,8 @@ public class SortedSet extends Set {
             System.out.println("Invalid Arguments to SubSet Exception");
             return null;
         }
-        int fromIndex = indexOf(fromElement);
-        int toIndex = indexOf(toElement);
+        int fromIndex = getIndex(fromElement);
+        int toIndex = getIndex(toElement);
         Set subSet = new Set();
         for(int i = fromIndex; i < toIndex; i++) {
             subSet.add(this.get(i));
