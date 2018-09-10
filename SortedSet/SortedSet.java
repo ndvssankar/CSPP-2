@@ -12,7 +12,7 @@ public class SortedSet extends Set {
 
     public Set subSet(int fromElement, int toElement) {
         if (fromElement > toElement) {
-            System.out.println("Invalid Arguments to SubSet Exception");
+            System.out.println("Invalid Arguments to Subset Exception");
             return null;
         }
         int fromIndex = getIndex(fromElement);
