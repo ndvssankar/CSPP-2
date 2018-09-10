@@ -4,7 +4,10 @@ import java.util.Scanner;
 public class SortedSet extends Set {
 
     public Set headSet(int toElement) {
-         return subSet(get(0), toElement);
+        if (this.get(0) > toElement) {
+            return new Set();
+        }
+        return subSet(get(0), toElement);
     }
 
     public Set subSet(int fromElement, int toElement) {
