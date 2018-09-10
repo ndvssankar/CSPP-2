@@ -84,22 +84,4 @@ public class SortedSet extends Set {
         }
         return lo;
     }
-
-    public static void main(String[] args) {
-        
-    }
-
-    // public static void main(String[] args) {
-    //     SortedSet set = new SortedSet();
-    //     int[] arr = {1,2,3,4,5,6,7};
-    //     set.addAll(arr);
-    //     System.out.println(set);
-    //     set.add(8);
-    //     System.out.println(set);
-    //     set.add(0);
-    //     System.out.println(set);
-    //     System.out.println(set.subSet(3, 5));
-    //     System.out.println(set.headSet(5));
-    //     System.out.println(set.last());
-    // }
 }
