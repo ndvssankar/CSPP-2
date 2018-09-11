@@ -9,8 +9,10 @@ class SetEmptyException extends Exception {
 
 public class SortedSet extends Set {
     /**
-     * Returns the largest element of the set.
-     * @return last element of the set.
+     * Returns the last element of the set if the set is not emtpy.
+     * if the set is empty, it returns -1 by printing a message
+     * Set Empty Exception.
+     * @return last element of the set if the set is not empty.
      */
     public int last() {
         if (size() == 0) {
