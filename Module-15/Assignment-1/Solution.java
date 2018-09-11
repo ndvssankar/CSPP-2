@@ -472,29 +472,29 @@ public class Solution {
         String objectType = "I";
 
         switch(objectType) {
-        	case "S"://This case will be executed for String type list
-        	   executeListString(stdin);
-	           break;
+        	// case "S"://This case will be executed for String type list
+        	//    executeListString(stdin);
+	        //    break;
 
 	        case "I"://This case will be executed for Integer type list
-	        	executeListInteger(stdin);
-	           break;
+                executeListInteger(stdin);
+                break;
 
-	        case "F"://This case will be executed for Float type list
-	            executeListFloat(stdin);
-	        break;
+	        // case "F"://This case will be executed for Float type list
+	        //     executeListFloat(stdin);
+	        // break;
 
-	        case "C"://This case will be executed for Character type list
-        		executeListString(stdin);
-	        break;
+	        // case "C"://This case will be executed for Character type list
+        	// 	executeListString(stdin);
+	        // break;
 
-	        case "D"://This case will be executed for Double type list
-        		executeListDouble(stdin);
-	        break;
+	        // case "D"://This case will be executed for Double type list
+        	// 	executeListDouble(stdin);
+	        // break;
 
-	        case "O"://This case will be executed for Student type list i.e to store List of Student Objects
-	        	executeListStudent(stdin);
-	        	break;
+	        // case "O"://This case will be executed for Student type list i.e to store List of Student Objects
+	        // 	executeListStudent(stdin);
+	        // 	break;
 	        default:
 	        break;
     	}
