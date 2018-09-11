@@ -9,22 +9,22 @@ class Student {
     /**
      * name attribute that holds the student name.
      */
-    private String name;
+    private String studentName;
 
     /**
      * Student constructor.
      * @param  name of the student as a parameter.
      */
-    public Student(final String name) {
-        this.name = name;
+    Student(final String name) {
+        this.studentName = name;
     }
 
     /**
      * gets the student name.
      * @return student name.
      */
-    public String getName() {
-        return this.name;
+    public String getStudentName() {
+        return this.studentName;
     }
 
     /**
@@ -47,7 +47,7 @@ class Student {
         }
 
         Student that = (Student) other;
-        return this.getName().equals(that.getName());
+        return this.getStudentName().equals(that.getStudentName());
     }
 
     /**
@@ -55,7 +55,7 @@ class Student {
      * @return string version of object.
      */
     public String toString() {
-        return this.name;
+        return this.studentName;
     }
 }
 
@@ -63,7 +63,7 @@ class Student {
  * Demostrating the student object.
  * @author Siva Sankar
  */
-public class Solution {
+public final class Solution {
 
     /**
      * No creation of object is required. So, making this as private.
@@ -158,7 +158,7 @@ public class Solution {
                         if (object != null) {
                             System.out.println(object);
                         }
-                    } catch(Exception ex1) {
+                    } catch (Exception ex1) {
                         System.out.println(ex1.getMessage());
                     }
                     break;
@@ -348,8 +348,9 @@ public class Solution {
                     if (tokens.length == 2) {
                         String[] t2 = tokens[1].split(",");
                         Float[] a = new Float[t2.length];
-                        for (int i = 0; i < t2.length; i++)
+                        for (int i = 0; i < t2.length; i++) {
                             a[i] = Float.parseFloat(t2[i]);
+                        }
                         l.removeAll(a);
                     }
                 break;
