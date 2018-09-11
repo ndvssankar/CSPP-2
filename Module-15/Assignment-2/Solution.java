@@ -1,7 +1,7 @@
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 import java.util.Arrays;
-
+import static java.lang.System.out;
 /**
  * Solution class for code-eval.
  */
@@ -15,7 +15,7 @@ public final class Solution {
     /**
      * helper function to convert string input to int array.
      *
-     * @param      s     { string input from test case file }
+     * @param      s { string input from test case file }
      *
      * @return     { int array from the given string }
      */
@@ -50,13 +50,13 @@ public final class Solution {
             // based on the list operation invoke the corresponding method
             switch (tokens[0]) {
                 case "size":
-                System.out.println(s.size());
+                out.println(s.size());
                 break;
                 case "contains":
-                System.out.println(s.contains(Integer.parseInt(tokens[1])));
+                out.println(s.contains(Integer.parseInt(tokens[1])));
                 break;
                 case "print":
-                System.out.println(s);
+                out.println(s);
                 break;
                 case "add":
                 int[] intArray = intArray(tokens[1]);
@@ -67,7 +67,7 @@ public final class Solution {
                         s.add(intArray);
                     }
                 } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                    out.println(ex.getMessage());
                 }
                 break;
                 case "intersection":
@@ -77,14 +77,14 @@ public final class Solution {
                 s1.add(intArray);
                 intArray = intArray(tokens[2]);
                 t.add(intArray);
-                System.out.println(s1.intersection(t));
+                out.println(s1.intersection(t));
                 break;
                 case "retainAll":
                 s1 = new SortedSet();
                 intArray = intArray(tokens[1]);
                 s1.add(intArray);
                 intArray = intArray(tokens[2]);
-                System.out.println(s1.retainAll(intArray));
+                out.println(s1.retainAll(intArray));
                 break;
                 case "cartesianProduct":
                 s1 = new SortedSet();
@@ -93,7 +93,7 @@ public final class Solution {
                 s1.add(intArray);
                 intArray = intArray(tokens[2]);
                 t.add(intArray);
-                System.out.println(Arrays.deepToString(s1.cartesianProduct(t)));
+                out.println(Arrays.deepToString(s1.cartesianProduct(t)));
                 break;
                 case "addAll":
                 int[] arr = intArray(tokens[1]);
@@ -104,24 +104,24 @@ public final class Solution {
                 try {
                     Set set1 = s.subSet(arr[0], arr[1]);
                     if (set1 != null) {
-                        System.out.println(set1);
+                        out.println(set1);
                     }
                 } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                    out.println(ex.getMessage());
                 }
                 break;
                 case "headSet":
                 try {
-                    System.out.println(s.headSet(Integer.parseInt(tokens[1])));
+                    out.println(s.headSet(Integer.parseInt(tokens[1])));
                 } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                    out.println(ex.getMessage());
                 }
                 break;
                 case "last":
                 try {
-                    System.out.println(s.last());
+                    out.println(s.last());
                 } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                    out.println(ex.getMessage());
                 }
                 break;
                 default:
