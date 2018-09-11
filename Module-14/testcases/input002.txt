@@ -1,0 +1,19 @@
+18
+subSet -2,6
+subSet 10,4
+subSet -1,-1
+last
+print
+addAll 1,5,16,3,19,25
+print
+last
+subSet 1,25
+subSet 1,26
+subSet 0,25
+subSet 0,26
+print
+headSet 6
+headSet 1
+headSet 2
+headSet 25
+headSet 26
