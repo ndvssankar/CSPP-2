@@ -1,7 +1,8 @@
 import java.io.BufferedInputStream;
-import java.util.Scanner;
+// import java.util.Scanner;
+import java.util.*;
 
-class SetEmptyException extends Exception {
+class SetEmptyException extends RuntimeException {
     public SetEmptyException(String message) {
         super(message);
     }
@@ -12,7 +13,7 @@ public class SortedSet extends Set {
      * Returns the largest element of the set.
      * @return last element of the set.
      */
-    public int last() throws Exception {
+    public int last() {
         if (size() == 0) {
             throw new SetEmptyException("Set Empty Exception");
         } else {
@@ -61,9 +62,9 @@ public class SortedSet extends Set {
      * @param  toElement   to this element.
      * @return             subset of the set.
      */
-    public Set subSet(int fromElement, int toElement) throws Exception {
+    public Set subSet(int fromElement, int toElement) {
         if (fromElement > toElement) {
-            throw new IllegalArgumentException("Invalid Arguments to Subset Exception");
+            throw new NoSuchElementException("Invalid Arguments to Subset Exception");
         } else {
             int fromIndex = rank(fromElement);
             int toIndex = rank(toElement);
@@ -80,7 +81,7 @@ public class SortedSet extends Set {
      * @param  item as a parameter
      * @return      the index of the new item to be inserted.
      */
-    public int rank(int item) throws Exception {
+    public int rank(int item) {
         int lo = 0, hi = this.size() - 1;
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
