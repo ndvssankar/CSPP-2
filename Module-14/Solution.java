@@ -60,14 +60,10 @@ public final class Solution {
                 break;
                 case "add":
                 int[] intArray = intArray(tokens[1]);
-                try {
-                    if (intArray.length == 1) {
-                        s.add(intArray[0]);
-                    } else {
-                        s.add(intArray);
-                    }
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                if (intArray.length == 1) {
+                    s.add(intArray[0]);
+                } else {
+                    s.add(intArray);
                 }
                 break;
                 case "intersection":
@@ -101,28 +97,17 @@ public final class Solution {
                 break;
                 case "subSet":
                 arr = intArray(tokens[1]);
-                try {
-                    Set set1 = s.subSet(arr[0], arr[1]);
-                    if (set1 != null) {
-                        System.out.println(set1);
-                    }
-                } catch(Exception ex) {
-                    System.out.println(ex.getMessage());
+                Set set1 = s.subSet(arr[0], arr[1]);
+                if (set1 != null) {
+                    System.out.println(set1);
                 }
                 break;
                 case "headSet":
-                try {
-                    System.out.println(s.headSet(Integer.parseInt(tokens[1])));
-                } catch(Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
+                    System.out.println(s.headSet(
+                        Integer.parseInt(tokens[1])));
                 break;
                 case "last":
-                try {
                     System.out.println(s.last());
-                } catch(Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
                 break;
                 default:
                 break;

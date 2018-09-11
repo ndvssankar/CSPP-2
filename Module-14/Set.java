@@ -58,7 +58,8 @@ public class Set {
      */
     public void add(int index, int item) {
         if (index < 0 || index > size()) {
-            throw new IndexOutOfBoundsException("Invalid Index Exception");
+            System.out.println("Invalid Index Exception");
+            return;
         } else {
             if (size == set.length) {
                 resize();
@@ -167,8 +168,8 @@ public class Set {
      */
     public int get(final int index) {
         if (index < 0 || index >= this.size()) {
-            throw new ArrayIndexOutOfBoundsException(
-                "Invalid Index Exception");
+           System.out.println("Invalid Index Exception");
+           return -1;
         } else {
             return set[index];
         }

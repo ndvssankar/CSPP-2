@@ -12,9 +12,10 @@ public class SortedSet extends Set {
      * Returns the largest element of the set.
      * @return last element of the set.
      */
-    public int last() throws Exception {
+    public int last() {
         if (size() == 0) {
-            throw new SetEmptyException("Set Empty Exception");
+            System.out.println("Set Empty Exception");
+            return -1;
         } else {
             return get(size() - 1);
         }
@@ -30,12 +31,8 @@ public class SortedSet extends Set {
             resize();
         } else {
             if (!contains(item)) {
-                try {
-                    int index = rank(item);
-                    add(index, item);
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
+                int index = rank(item);
+                add(index, item);
             }
         }
     }
@@ -45,10 +42,11 @@ public class SortedSet extends Set {
      * @param  toElement up to this element (exclusive)
      * @return           the set that are less than to element.
      */
-    public Set headSet(int toElement) throws Exception {
+    public Set headSet(int toElement) {
         int toIndex = rank(toElement);
         if (toIndex == 0) {
-            throw new Exception("Set Empty Exception");
+            System.out.println("Set Empty Exception");
+            return null;
         } else {
             int fromElement = get(0);
             return subSet(fromElement, toElement);
@@ -61,11 +59,11 @@ public class SortedSet extends Set {
      * @param  toElement   to this element.
      * @return             subset of the set.
      */
-    public Set subSet(int fromElement, int toElement)
-    throws Exception {
+    public Set subSet(int fromElement, int toElement) {
         if (fromElement > toElement) {
-            throw new IllegalArgumentException(
+            System.out.println(
                 "Invalid Arguments to Subset Exception");
+            return null;
         } else {
             int fromIndex = rank(fromElement);
             int toIndex = rank(toElement);
@@ -82,7 +80,7 @@ public class SortedSet extends Set {
      * @param  item as a parameter
      * @return      the index of the new item to be inserted.
      */
-    public int rank(int item) throws Exception {
+    public int rank(int item) {
         int lo = 0, hi = this.size() - 1;
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
