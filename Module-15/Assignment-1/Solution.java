@@ -9,46 +9,46 @@ class Student {
     /**
      * name attribute that holds the student name.
      */
-	private String name;
+    private String name;
 
     /**
      * Student constructor.
      * @param  name of the student as a parameter.
      */
-	public Student(final String name) {//A constructor used to initialize the instance variables
-		this.name = name;
-	}
+    public Student(final String name) {//A constructor used to initialize the instance variables
+        this.name = name;
+    }
 
     /**
      * gets the student name.
      * @return student name.
      */
-	public String getName() {//Getter method which returns the value of instance variable
-		return this.name;
-	}
+    public String getName() {//Getter method which returns the value of instance variable
+        return this.name;
+    }
 
     /**
      * overriding equals method.
      * @param  other object to compare.
      * @return       true if both the students have the same name.
      */
-	@Override
-	public boolean equals(final Object other) { //This method is to check if two students names are equal or not
-		if (!(other instanceof Student)) {
-			return false;
-		}
+    @Override
+    public boolean equals(final Object other) { //This method is to check if two students names are equal or not
+        if (!(other instanceof Student)) {
+            return false;
+        }
 
-		Student that = (Student) other;
-		return this.getName().equals(that.getName());
-	}
+        Student that = (Student) other;
+        return this.getName().equals(that.getName());
+    }
 
     /**
      * returns the string version of the student object.
      * @return string version of object.
      */
-	public String toString() {
-		return this.name;
-	}
+    public String toString() {
+        return this.name;
+    }
 }
 
 /**
@@ -61,8 +61,8 @@ public class Solution {
      * executeListInteger description.
      * @param stdin to read the input.
      */
-	public static void executeListInteger(final Scanner stdin) {
-		List<Integer> l = new List();
+    public static void executeListInteger(final Scanner stdin) {
+        List<Integer> l = new List();
         while (stdin.hasNext()) {
             // read the line
             String line = stdin.nextLine();
@@ -164,15 +164,15 @@ public class Solution {
                 default:
                 break;
             }
-        }	
-	}
+        }   
+    }
 
     /**
      * executes based on double type.
      * @param stdin to read the input.
      */
-	public static void executeListDouble(final Scanner stdin) {
-		List<Double> l = new List();
+    public static void executeListDouble(final Scanner stdin) {
+        List<Double> l = new List();
         while (stdin.hasNext()) {
             // read the line
             String line = stdin.nextLine();
@@ -258,14 +258,14 @@ public class Solution {
                 break;
             }
         }
-	}
+    }
 
     /**
      * executes based on float type.
      * @param stdin to read the input.
      */
     public static void executeListFloat(final Scanner stdin) {
-		List<Float> l = new List();
+        List<Float> l = new List();
         while (stdin.hasNext()) {
             // read the line
             String line = stdin.nextLine();
@@ -350,15 +350,15 @@ public class Solution {
                 default:
                 break;
             }
-        }	
-	}
+        }   
+    }
 
     /**
      * executes based on String type.
      * @param stdin to read the input.
      */
     public static void executeListString(final Scanner stdin) {
-		List<String> l = new List();
+        List<String> l = new List();
         while (stdin.hasNext()) {
             // read the line
             String line = stdin.nextLine();
@@ -436,15 +436,15 @@ public class Solution {
                 default:
                 break;
             }
-        }	
-	}
+        }   
+    }
 
     /**
      * executes based on Student type.
      * @param stdin to read the input.
      */
-	public static void executeListStudent(final Scanner stdin) {
-		List<Student> l = new List();
+    public static void executeListStudent(final Scanner stdin) {
+        List<Student> l = new List();
         while (stdin.hasNext()) {
             // read the line
             String line = stdin.nextLine();
@@ -491,7 +491,7 @@ public class Solution {
                         String[] t1 = tokens[1].split(",");
                         Student[] students = new Student[t1.length];
                         for (int i = 0; i < t1.length ;i++) {
-                        	students[i] = new Student(t1[i]);	
+                            students[i] = new Student(t1[i]);   
                         }
                         l.addAll(students);
                     }
@@ -499,10 +499,10 @@ public class Solution {
                 case "removeAll":
                     if (tokens.length == 2) {
                         String[] t1 = tokens[1].split(",");
-						Student[] students = new Student[t1.length];
-						for (int i = 0; i < t1.length ;i++) {
-							students[i] = new Student(t1[i]);	
-						}
+                        Student[] students = new Student[t1.length];
+                        for (int i = 0; i < t1.length ;i++) {
+                            students[i] = new Student(t1[i]);   
+                        }
                         l.removeAll(students);
                     }
                 break;
@@ -530,45 +530,45 @@ public class Solution {
                 default:
                 break;
             }
-        }	
-	}
+        }   
+    }
 
     /**
      * demostrates the List ADT.
      * @param stdin to read the input.
      */
-	public static void main(final String[] args) {
+    public static void main(final String[] args) {
         // create an object of the list to invoke methods on it
         Scanner stdin = new Scanner(new BufferedInputStream(System.in));
         String objectType = "I";
 
         switch(objectType) {
-        	case "S"://This case will be executed for String type list
-        	   executeListString(stdin);
-	           break;
+            case "S"://This case will be executed for String type list
+               executeListString(stdin);
+               break;
 
-	        case "I"://This case will be executed for Integer type list
+            case "I"://This case will be executed for Integer type list
                 executeListInteger(stdin);
                 break;
 
-	        case "F"://This case will be executed for Float type list
-	            executeListFloat(stdin);
-	        break;
+            case "F"://This case will be executed for Float type list
+                executeListFloat(stdin);
+            break;
 
-	        case "C"://This case will be executed for Character type list
-        		executeListString(stdin);
-	        break;
+            case "C"://This case will be executed for Character type list
+                executeListString(stdin);
+            break;
 
-	        case "D"://This case will be executed for Double type list
-        		executeListDouble(stdin);
-	        break;
+            case "D"://This case will be executed for Double type list
+                executeListDouble(stdin);
+            break;
 
-	        case "O"://This case will be executed for Student type list i.e to store List of Student Objects
-	        	executeListStudent(stdin);
-	        	break;
-	        default:
-	        break;
-    	}
-	}
+            case "O"://This case will be executed for Student type list i.e to store List of Student Objects
+                executeListStudent(stdin);
+                break;
+            default:
+            break;
+        }
+    }
 }
 
