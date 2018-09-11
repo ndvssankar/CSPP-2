@@ -77,7 +77,7 @@ public final class Solution {
                 s1.add(intArray);
                 intArray = intArray(tokens[2]);
                 t.add(intArray);
-                System.out.println(s.intersection(t));
+                System.out.println(s1.intersection(t));
                 break;
                 case "retainAll":
                 s1 = new SortedSet();
