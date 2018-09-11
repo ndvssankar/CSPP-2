@@ -45,8 +45,7 @@ public class SortedSet extends Set {
     public Set headSet(int toElement) {
         int toIndex = rank(toElement);
         if (toIndex == 0) {
-            System.out.println("Set Empty Exception");
-            return null;
+            return new Set();
         } else {
             int fromElement = get(0);
             return subSet(fromElement, toElement);
