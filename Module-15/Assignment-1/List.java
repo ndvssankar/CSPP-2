@@ -223,6 +223,21 @@ public class List<E> implements ListInterface<E> {
             subList.add(this.list[i]);
         return subList;
     }
+
+    /**
+     * counts the number of occurances of the given item.
+     * @param  item to be counted
+     * @return the number of occurances of the item.
+     */
+    public int count(E item) {
+        int count = 0;
+        for (int i=0; i<size; i++) {
+            if (item.equals(list[i]))
+                count += 1;
+        }
+        return count;
+    }
+
     /*Returns a boolean indicating whether the parameter
       i.e a List object is exactly matching with the given list or not.
      */
