@@ -106,21 +106,21 @@ public final class Solution {
                     if (set1 != null) {
                         System.out.println(set1);
                     }
-                } catch(Exception ex) {
+                } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
                 break;
                 case "headSet":
                 try {
                     System.out.println(s.headSet(Integer.parseInt(tokens[1])));
-                } catch(Exception ex) {
+                } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
                 break;
                 case "last":
                 try {
                     System.out.println(s.last());
-                } catch(Exception ex) {
+                } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
                 break;
