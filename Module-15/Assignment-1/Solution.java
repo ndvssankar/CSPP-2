@@ -54,7 +54,11 @@ public class Solution {
                 break;
                 case "remove":
                     if (tokens.length == 2) {
-                        l.remove(Integer.parseInt(tokens[1]));
+                        try {
+                            l.remove(Integer.parseInt(tokens[1]));
+                        } catch(Exception ex) {
+                            System.out.println(ex.getMessage());
+                        }
                     }
                 break;
                 case "indexOf":
@@ -94,9 +98,13 @@ public class Solution {
                 case "subList": {
                     if (tokens.length != 2) break;
                     String[] arrstring3 = tokens[1].split(",");
-                    List object = l.subList(Integer.parseInt(arrstring3[0]), Integer.parseInt(arrstring3[1]));
-                    if (object != null) 
-                        System.out.println(object);
+                    try {
+                        List object = l.subList(Integer.parseInt(arrstring3[0]), Integer.parseInt(arrstring3[1]));
+                        if (object != null) 
+                            System.out.println(object);
+                    } catch(Exception ex1) {
+                        System.out.println(ex1.getMessage());
+                    }
                     break;
                 }
                 case "equals":
