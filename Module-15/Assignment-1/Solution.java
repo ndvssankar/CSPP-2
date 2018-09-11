@@ -121,7 +121,8 @@ public class Solution {
                     l.clear();
                 break;
                 case "count":
-                    l.count(Integer.parseInt(tokens[1]));
+                    int c = l.count(Integer.parseInt(tokens[1]));
+                    System.out.println(c);
                     break;
                 default:
                 break;
