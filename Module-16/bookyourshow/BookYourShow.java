@@ -50,6 +50,8 @@ public class BookYourShow extends Show {
                 tickets.add(sb.toString());
                 // System.out.println("Ticket : " + sb.toString());
             }
+        } else {
+            System.out.println("No show");
         }
     }
 
