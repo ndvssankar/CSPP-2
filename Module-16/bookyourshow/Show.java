@@ -7,7 +7,7 @@ public class Show {
     private String[] seats;
 
     public Show() {
-        
+
     }
 
     public Show(final String movieName, final String dateTime,
@@ -42,6 +42,6 @@ public class Show {
     }
 
     public String toString() {
-        return this.getMovieName() + " : " + this.getDateTime();
+        return this.getMovieName() + "," + this.getDateTime();
     }
 }

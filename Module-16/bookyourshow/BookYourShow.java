@@ -57,12 +57,17 @@ public class BookYourShow extends Show {
         final String movieName,
         final String dateTime,
         final String mobileNumber) {
+        boolean flag = false;
         String thisTicket = mobileNumber + " " + movieName + " " + dateTime;
         for (int i = 0; i < tickets.size(); i++) {
             // System.out.println("Ticket : " + tickets.get(i) + "This ticket " + thisTicket);
             if (tickets.get(i).equals(thisTicket)) {
                 System.out.println(tickets.get(i));
+                flag = true;
             }
+        }
+        if (flag) {
+            System.out.println("Invalid");
         }
     }
 
