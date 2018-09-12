@@ -1,0 +1,18 @@
+17
+book Logan,Aug 19 2018 21:30,manasa,8797983473,[C1,D1]
+add Baby_driver,Aug 19 2018 17:30,[B8,B9,B10,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10]
+print Logan,Aug 19 2018 21:30,8797983473
+add Thor:Rangnarok,Aug 21 2018 17:30,[B10,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10]
+print Logan,Aug 20 2018 21:30,8797983473
+get Thor:Rangnarok,Aug 21 2018 17:30
+get Gold,Aug 19 2018 21:30
+book Thor:Rangnarok,Aug 21 2018 17:30,murthy,9885234566,[C1,D1]
+book Baby_driver,Aug 19 2018 17:30,rehana,9848100101,[C1,D1]
+add Mdma,Aug 21 2018 17:30,[C7,C8,C9,C10,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10]
+get Mdma,Aug 21 2018 17:30
+book Mdma,Aug 22 2018 17:30,manasa,99595967052,[C1,D1]
+add Avengers:3,Aug 21 2018 17:30,[C5,C6,C7,C8,C9,C10,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10]
+get Incredibles2,Aug 22 2018 12:30
+book Avengers:3,Aug 21 2018 17:30,rajesh,8797983473,[C9,D1]
+print Avengers:3,Aug 21 2018 17:30,8797983472
+print Thor:Rangnarok,Aug 21 2018 17:30,9885234566
