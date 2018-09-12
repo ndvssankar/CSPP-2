@@ -80,7 +80,7 @@ public class BookYourShow extends Show {
             sb.append(show + ",");
             sb.append("[");
             String[] seats = show.getSeats();
-            for (int j = 0; i<seats.length-1; i++) {
+            for (int j = 0; j<seats.length-1; j++) {
                 sb.append(seats[j] + ",");
             }
             sb.append(seats[seats.length-1] + "]");
