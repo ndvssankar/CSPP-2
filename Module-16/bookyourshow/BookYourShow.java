@@ -84,6 +84,7 @@ public class BookYourShow extends Show {
                 sb.append(seats[j] + ",");
             }
             sb.append(seats[seats.length-1] + "]");
+            System.out.println(sb.toString());
         }
     }
 }
