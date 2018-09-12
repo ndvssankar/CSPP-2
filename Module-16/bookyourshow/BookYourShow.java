@@ -75,7 +75,15 @@ public class BookYourShow extends Show {
 
     public void showAll() {
         for (int i = 0; i<shows.size(); i++) {
-            System.out.println(shows.get(i));
+            Show show = shows.get(i);
+            StringBuffer sb = new StringBuffer();
+            sb.append(show + ",");
+            sb.append("[");
+            String[] seats = show.getSeats();
+            for (int j = 0; i<seats.length-1; i++) {
+                sb.append(seats[j] + ",");
+            }
+            sb.append(seats[seats.length-1] + "]");
         }
     }
 }
