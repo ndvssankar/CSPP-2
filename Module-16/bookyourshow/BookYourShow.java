@@ -21,7 +21,7 @@ public class BookYourShow {
 
 		Show show = getAShow(movieName, dateTime);
 		if (show == null) {
-
+			System.out.println("No show");
 		} else {
 			String[] showSeats = show.getSeats();
 			for (int i=0; i<showSeats.length; i++) {
