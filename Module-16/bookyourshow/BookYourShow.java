@@ -66,7 +66,7 @@ public class BookYourShow extends Show {
                 flag = true;
             }
         }
-        if (flag) {
+        if (!flag) {
             System.out.println("Invalid");
         }
     }
