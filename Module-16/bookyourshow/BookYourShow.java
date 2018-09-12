@@ -50,6 +50,7 @@ public class BookYourShow {
 				return;
 			}
 		}
+		System.out.println("Invalid");
 	}
 
 	public Show getAShow(
