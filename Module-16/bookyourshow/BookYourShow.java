@@ -27,7 +27,7 @@ public class BookYourShow {
 			for (int i=0; i<showSeats.length; i++) {
 				for (int j=0; j<seats.length; j++) {
 					if (seats[j].equals(showSeats[i])) {
-						showSeats[i] = null;
+						showSeats[i] = "N/A";
 					}
 				}
 			}
@@ -44,11 +44,9 @@ public class BookYourShow {
 		final String dateTime,
 		final String mobileNumber) {
 		String ticket = mobileNumber + " " + movieName + " " + dateTime;
-		for(int i=0; i<tickets.size(); i++) {
-			if (tickets.get(i).equals(ticket)) {
-				System.out.println(tickets.get(i));
-				return;
-			}
+		if (tickets.contains(ticket)) {
+			System.out.println(ticket);
+			return;
 		}
 		System.out.println("Invalid");
 	}
@@ -67,7 +65,17 @@ public class BookYourShow {
 	}
 
 	public void showAll() {
-
+		for(int i=0; i<shows.size(); i++) {
+			StringBuffer sb = new StringBuffer();
+			Show show = shows.get(i);
+			sb.append(show + ",[");
+			String[] seats = show.getSeats();
+			for (int j = 0; j < seats.length-1; j++) {
+				sb.append(seats[j] + ",");
+			}
+			sb.append(seats[seats.length-1] + "]");
+			System.out.println(sb.toString());
+		}
 	}
-
 }
+
