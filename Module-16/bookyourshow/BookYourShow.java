@@ -39,7 +39,7 @@ public class BookYourShow extends Show {
                 for (int i=0; i<showSeats.length; i++) {
                     if (showSeats[i] != null && seats[j].equals(showSeats[i])) {
                         count += 1;
-                        showSeats[i] = null;
+                        showSeats[i] = "N/A";
                     }
                 }
             }
