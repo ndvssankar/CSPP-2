@@ -106,18 +106,18 @@ public class ShoppingCart {
         System.out.println("Name   quantity   Price");
         for(int i=0; i<cart.size(); i++) {
             Item item = cart.get(i);
-            System.out.println(item.getItemName() + " " + item.getQuantity());
+            System.out.println(item.getItemName() + " " + item.getQuantity() + " " + item.getPrice());
         }
         System.out.println("totalAmount: " + getTotalAmount());
-        System.out.println("Total: " + getTotalAmount());
+        System.out.println("Total:" + getTotalAmount());
         if (applyCoupon) {
             totalAmount = getTotalAmount();
             totalAmount = totalAmount - (totalAmount * couponCode);
             System.out.println("Tax: " +  totalAmount * 0.15);
         } else {
-            System.out.println("Discount: " + 0.0);
-            System.out.println("Tax: " + getTotalAmount() * 0.15);
+            System.out.println("Disc%: " + 0.0);
+            System.out.println("Tax:" + getTotalAmount() * 0.15);
         }
-        System.out.println("getPayableAmount: " + getPayableAmount());
+        System.out.println("Payable amount: " + getPayableAmount());
     }
 }
