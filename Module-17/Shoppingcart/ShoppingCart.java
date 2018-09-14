@@ -103,6 +103,7 @@ public class ShoppingCart {
 
     public void printInvoice() {
         float totalAmount = 0.0f;
+        System.out.println("Name   quantity   Price");
         for(int i=0; i<cart.size(); i++) {
             Item item = cart.get(i);
             System.out.println(item.getItemName() + " " + item.getQuantity());
