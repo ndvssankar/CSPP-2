@@ -115,7 +115,7 @@ public class ShoppingCart {
             totalAmount = totalAmount - (totalAmount * couponCode);
             System.out.println("Tax: " +  totalAmount * 0.15);
         } else {
-            System.out.println("Disc%: " + 0.0);
+            System.out.println("Disc%:" + 0.0);
             System.out.println("Tax:" + getTotalAmount() * 0.15);
         }
         System.out.println("Payable amount: " + getPayableAmount());
