@@ -1,0 +1,26 @@
+paneer 63 160.0
+curd 219 30.0
+greentea 150 120.0
+oil_1l 114 100.0
+peas 36 40.0
+cofee 146 30.0
+ghee 46 520.0
+honey 79 280.0
+milk 30 30.0
+totalAmount: 14360.0
+honey 50
+milk 12
+cofee 8
+totalAmount: 15960.0
+totalAmount: 15900.0
+Payable amount: 18250.5
+Name   quantity   Price
+peas 34 40.0
+cofee 8 30.0
+honey 50 280.0
+milk 10 30.0
+totalAmount: 15900.0
+Total:15900.0
+Disc%:4770.0
+Tax:1669.5
+Payable amount: 12799.5

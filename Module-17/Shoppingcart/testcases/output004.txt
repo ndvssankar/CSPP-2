@@ -1,0 +1,38 @@
+cheese 211 80.0
+honey 150 280.0
+cofee 190 750.0
+greentea 97 120.0
+chicken 147 180.0
+ghee 194 520.0
+rice5kg 169 300.0
+milk 33 28.0
+cofee 4
+chicken 10
+rice5kg 10
+honey 5
+cofee 4
+chicken 10
+rice5kg 12
+honey 5
+cofee 4
+chicken 10
+rice5kg 12
+honey 3
+milk 4
+cheese 4
+totalAmount: 9672.0
+Payable amount: 11122.8
+Invalid coupon
+Payable amount: 11122.8
+Name   quantity   Price
+cheese 4 80.0
+honey 3 280.0
+cofee 4 750.0
+chicken 10 180.0
+rice5kg 12 300.0
+milk 4 28.0
+totalAmount: 9672.0
+Total:9672.0
+Disc%:0.0
+Tax:1450.8
+Payable amount: 11122.8

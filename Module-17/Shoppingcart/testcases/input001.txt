@@ -1,0 +1,19 @@
+18
+Item greentea,128,120
+Item Eggs,65,5
+Item rice5kg,109,300
+Item curd,22,30
+Item cofee,81,300
+catalog
+add curd,19
+add cofee,16
+show
+totalAmount
+remove curd,5
+show
+totalAmount
+remove cofee,1
+show
+totalAmount
+payableAmount
+print

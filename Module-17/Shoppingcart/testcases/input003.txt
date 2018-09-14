@@ -1,0 +1,24 @@
+23
+Item paneer,63,160
+Item curd,219,30
+Item greentea,150,120
+Item oil_1l,114,100
+Item peas,36,40
+Item cofee,146,30
+Item ghee,46,520
+Item honey,79,280
+Item milk,30,30
+catalog
+add honey,50
+add milk,12
+totalAmount
+add cofee,8
+show
+add peas,34
+totalAmount
+remove milk,2
+totalAmount
+coupon IND30
+coupon IND20
+payableAmount
+print

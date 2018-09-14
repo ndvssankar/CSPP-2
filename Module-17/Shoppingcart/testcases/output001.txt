@@ -1,0 +1,23 @@
+greentea 128 120.0
+Eggs 65 5.0
+rice5kg 109 300.0
+curd 22 30.0
+cofee 81 300.0
+curd 19
+cofee 16
+totalAmount: 5370.0
+curd 14
+cofee 16
+totalAmount: 5220.0
+curd 14
+cofee 15
+totalAmount: 4920.0
+Payable amount: 5658.0
+Name   quantity   Price
+curd 14 30.0
+cofee 15 300.0
+totalAmount: 4920.0
+Total:4920.0
+Disc%:0.0
+Tax:738.0
+Payable amount: 5658.0

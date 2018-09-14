@@ -1,0 +1,23 @@
+22
+Item bread,194,30
+Item chicken,148,180
+Item Eggs,218,5
+Item peas,47,40
+Item milk,31,28
+Item rice5kg,108,300
+Item cup,143,400
+catalog
+add milk,19
+add cup,2
+show
+totalAmount
+remove cup,2
+show
+add peas,5
+add bread,50
+show
+payableAmount
+coupon IND50
+totalAmount
+payableAmount
+print

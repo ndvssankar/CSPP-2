@@ -1,0 +1,27 @@
+26
+Item cheese,211,80
+Item honey,150,280
+Item cofee,190,750
+Item greentea,97,120
+Item chicken,147,180
+Item ghee,194,520
+Item rice5kg,169,300
+Item milk,33,28
+catalog
+add cofee,4
+add chicken,10
+add rice5kg,10
+add honey,5
+show
+add rice5kg,2
+show
+add milk,18
+add cheese,4
+remove milk,14
+remove honey,2
+show
+totalAmount
+payableAmount
+coupon IND40
+payableAmount
+print
