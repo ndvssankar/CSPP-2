@@ -14,12 +14,11 @@ peas 5
 bread 50
 Payable amount: 2566.8
 totalAmount: 2232.0
-Payable amount: 2509.3
+Payable amount: 1283.4
 Name   quantity   Price
-bread 50 30.0
-peas 5 40.0
 milk 19 28.0
-totalAmount: 2232.0
+peas 5 40.0
+bread 50 30.0
 Total:2232.0
 Disc%:1116.0
 Tax:167.4

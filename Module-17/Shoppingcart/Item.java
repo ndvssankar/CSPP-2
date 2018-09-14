@@ -1,30 +1,25 @@
 
 public class Item {
-
-    private String itemName;
+    private String productName;
     private int quantity;
-    private float price;
+    private float unitPrice;
 
-    public Item() {
-
-    }
-
-    public Item(final String itemName,
+    public Item(final String productName,
         final int quantity,
-        final float price) {
-        this.itemName = itemName;
+        final float unitPrice) {
+        this.productName = productName;
+        this.unitPrice = unitPrice;
         this.quantity = quantity;
-        this.price = price;
     }
 
-    public float getPrice() {
-        return price;
+    public float getUnitPrice() {
+        return unitPrice;
     }
      
-    public void setPrice(float price) {
-        this.price = price;
+    public void setUnitPrice(float unitPrice) {
+        this.unitPrice = unitPrice;
     }
-
+     
     public int getQuantity() {
         return quantity;
     }
@@ -33,17 +28,21 @@ public class Item {
         this.quantity = quantity;
     }
      
-    public String getItemName() {
-        return itemName;
+    public String getProductName() {
+        return productName;
     }
      
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    @Override
+    public boolean equals(Object item) {
+        Item myItem = (Item)item;
+        return this.getProductName().equals(myItem.getProductName());
     }
 
     public String toString() {
-        return this.getItemName() + " " +
-        this.getQuantity() + " " +
-        this.getPrice();
+        return this.getProductName() + " " + this.getQuantity() + " " + this.getUnitPrice();
     }
 }

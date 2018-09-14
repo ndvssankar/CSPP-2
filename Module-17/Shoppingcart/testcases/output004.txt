@@ -25,13 +25,12 @@ Payable amount: 11122.8
 Invalid coupon
 Payable amount: 11122.8
 Name   quantity   Price
-cheese 4 80.0
-honey 3 280.0
 cofee 4 750.0
 chicken 10 180.0
 rice5kg 12 300.0
+honey 3 280.0
 milk 4 28.0
-totalAmount: 9672.0
+cheese 4 80.0
 Total:9672.0
 Disc%:0.0
 Tax:1450.8

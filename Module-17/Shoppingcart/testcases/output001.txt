@@ -16,7 +16,6 @@ Payable amount: 5658.0
 Name   quantity   Price
 curd 14 30.0
 cofee 15 300.0
-totalAmount: 4920.0
 Total:4920.0
 Disc%:0.0
 Tax:738.0

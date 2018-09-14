@@ -2,122 +2,141 @@
 public class ShoppingCart {
     List<Item> catalog;
     List<Item> cart;
-    boolean applyCoupon = false;
     float couponCode;
+    boolean isCouponApplied;
+
     public ShoppingCart() {
         catalog = new List<Item>();
-        cart = new List<Item>();
+        cart =  new List<Item>();
+        isCouponApplied = false;
     }
 
-    public void addItemToCatalog(Item item) {
-        catalog.add(item);
-    }
-
-    public Item getItem(String itemName) {
-        for (int i = 0; i < catalog.size(); i++) {
-            if (itemName.equals(catalog.get(i).getItemName())) {
-                return catalog.get(i);
-            }
-        }
-        return null;
-    }
-
-    public void removeItemFromCart(Item item) {
-        Item cartItem = getItemFromCart(item.getItemName());
-        Item catalogItem = getItem(item.getItemName());
-        if (cartItem != null) {
-            if (cartItem.getQuantity() == item.getQuantity()) {
-                int index = cart.indexOf(item);
-                cart.remove(index);
-                catalogItem.setQuantity(catalogItem.getQuantity() + item.getQuantity());
-            } else {
-                catalogItem.setQuantity(catalogItem.getQuantity() + item.getQuantity());
-                cartItem.setQuantity(cartItem.getQuantity() - item.getQuantity());
-                // cartItem.setPrice(catalogItem.getPrice() * cartItem.getQuantity());
-            }
-        }
-    }
-
-    public Item getItemFromCart(String itemName) {
-        for(int i=0; i<cart.size(); i++) {
-            if(itemName.equals(cart.get(i).getItemName())) {
-                return cart.get(i);
-            }
-        }
-        return null;
-    }
-
-    public void addItemToCart(Item item) {
-        Item catalogItem = getItem(item.getItemName());
-        if(catalogItem != null) {
-            if (catalogItem.getQuantity() >= item.getQuantity()) {
-                catalogItem.setQuantity(catalogItem.getQuantity() - item.getQuantity());
-                // item.setPrice(catalogItem.getPrice() * item.getQuantity());
-                item.setPrice(catalogItem.getPrice());
-                cart.add(item);
-            }
+    public void addToCatalog(Item item) {
+        int index = catalog.indexOf(item);
+        if (index == -1) {
+            catalog.add(item);
         }
     }
 
     public void showCatalog() {
-        for(int i=0; i<catalog.size(); i++) {
+        for (int i = 0; i < catalog.size(); i++) {
             System.out.println(catalog.get(i));
         }
     }
-    
+
     public void showCart() {
-        for(int i=0; i<cart.size(); i++) {
+        for (int i = 0; i < cart.size(); i++) {
             Item item = cart.get(i);
-            System.out.println(item.getItemName() + " " +item.getQuantity());
+            System.out.println(item.getProductName() + " " + item.getQuantity());
         }
     }
 
-    public float getPayableAmount() {
-        float totalAmount = getTotalAmount();
-        totalAmount += (totalAmount * 0.15f);
-        return totalAmount;
+    // catalog :
+    //  milk 100 10.0
+    //  panneer 120 50.0
+    //  
+    //  cart :
+    //   
+    //  add milk 30
+
+    public void addToCart(Item item) {
+                            //  add milk 30
+        int index = catalog.indexOf(item);
+        Item catalogItem = catalog.get(index);
+        //  milk 70 10.0
+
+        index = cart.indexOf(item);
+        Item cartItem = cart.get(index);
+        // milk 20 10.0
+
+        if (cartItem != null) {
+            cartItem.setQuantity(cartItem.getQuantity() + item.getQuantity());
+            catalogItem.setQuantity(catalogItem.getQuantity() - item.getQuantity());
+            return;
+        }
+        if (catalogItem.getQuantity() >= item.getQuantity()) {
+            item.setUnitPrice(catalogItem.getUnitPrice());
+            cart.add(item);
+            catalogItem.setQuantity(catalogItem.getQuantity() - item.getQuantity());
+            return;
+        }
     }
 
     public float getTotalAmount() {
         float totalAmount = 0.0f;
-        for(int i=0; i<cart.size(); i++) {
+        for (int i = 0; i < cart.size(); i++) {
             Item item = cart.get(i);
-            totalAmount += item.getPrice() * item.getQuantity();
+            totalAmount = totalAmount + item.getQuantity() * item.getUnitPrice();
         }
         return totalAmount;
     }
 
-    public void applyCoupon(String couponCode) {
-        if(applyCoupon == false) {
-            if (couponCode.equals("IND10"))
-                this.couponCode = 0.1f;
-            else if (couponCode.equals("IND20"))
-                this.couponCode = 0.2f;
-            else if (couponCode.equals("IND30"))
-                this.couponCode = 0.3f;
-            else if (couponCode.equals("IND50"))
-                this.couponCode = 0.5f;
-            applyCoupon = true;
+    public float getPayableAmount() {
+        float totalAmount = getTotalAmount();
+        float disc = totalAmount * couponCode;
+        totalAmount = totalAmount - disc;
+        float payableAmount = totalAmount + (totalAmount * 0.15f);
+        return payableAmount;
+    }
+
+    public void removeFromCart(Item item) {
+        int index = catalog.indexOf(item);
+        Item catalogItem = catalog.get(index);
+
+        index = cart.indexOf(item);
+        Item cartItem = cart.get(index);
+
+        if (cartItem != null) {
+            if (cartItem.getQuantity() == item.getQuantity()) {
+                cart.remove(index);
+            } else {
+                cartItem.setQuantity(cartItem.getQuantity() - item.getQuantity());
+                catalogItem.setQuantity(catalogItem.getQuantity() + item.getQuantity());
+            }
+        }
+    }
+
+    public void applyCoupon(String coupon) {
+        if (isCouponApplied == false) {
+            if (coupon.equals("IND10"))
+                couponCode = 0.1f;
+            else if (coupon.equals("IND20"))
+                couponCode = 0.2f;
+            else if (coupon.equals("IND30"))
+                couponCode = 0.3f;
+            else if (coupon.equals("IND50"))
+                couponCode = 0.5f;
+            else {
+                System.out.println("Invalid coupon");
+                return;
+            }
+            isCouponApplied = true;
         }
     }
 
     public void printInvoice() {
-        float totalAmount = 0.0f;
         System.out.println("Name   quantity   Price");
-        for(int i=0; i<cart.size(); i++) {
-            Item item = cart.get(i);
-            System.out.println(item.getItemName() + " " + item.getQuantity() + " " + item.getPrice());
+        for (int i = 0; i < cart.size(); i++) {
+            System.out.println(cart.get(i));
         }
-        System.out.println("totalAmount: " + getTotalAmount());
         System.out.println("Total:" + getTotalAmount());
-        if (applyCoupon) {
-            totalAmount = getTotalAmount();
-            totalAmount = totalAmount - (totalAmount * couponCode);
-            System.out.println("Tax: " +  totalAmount * 0.15);
+        if (isCouponApplied == true) {
+            float totalAmount = getTotalAmount();
+            float disc = (totalAmount * couponCode);
+            System.out.println("Disc%:" + disc);
+            totalAmount = totalAmount - disc;
+            float tax = totalAmount * 15 / 100;
+            System.out.println("Tax:" + tax);
+            totalAmount = totalAmount + tax;
+            System.out.println("Payable amount: " + totalAmount);
         } else {
+            float totalAmount = getTotalAmount();
             System.out.println("Disc%:" + 0.0);
-            System.out.println("Tax:" + getTotalAmount() * 0.15);
+            float tax = totalAmount * 0.15f;
+            System.out.println("Tax:" + tax);
+            totalAmount = totalAmount + (totalAmount * 0.15f);
+            System.out.println("Payable amount: " + totalAmount);
         }
-        System.out.println("Payable amount: " + getPayableAmount());
     }
 }
+
