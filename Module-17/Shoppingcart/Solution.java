@@ -37,7 +37,7 @@ public class Solution {
 						0.0f));
 					break;
 				case "payableAmount":
-					System.out.println("PayableAmount: " + cart.getPayableAmount());
+					System.out.println("Payable amount: " + cart.getPayableAmount());
 					break;
 				case "print":
 					cart.printInvoice();
