@@ -77,6 +77,7 @@ public final class Solution {
                 System.out.println(ex.getMessage());
             }
         }
+        System.out.println(quiz.size() + " are added to the quiz");
     }
 
     /**
@@ -90,7 +91,14 @@ public final class Solution {
         // write your code here to display the quiz questions
         // read the user responses from the console
         // store the user respones in the quiz object
-
+        for (int i = 0; i < quiz.size(); i++) {
+            System.out.println(quiz.getQuestion(i));
+        }
+        for (int i = 0; i < answerCount; i++) {
+            String[] words = s.nextLine().split(" ");
+            quiz.getQuestion(i).setResponse(
+                Integer.parseInt(words[1]));
+        }
     }
 
     /**
@@ -99,7 +107,21 @@ public final class Solution {
      * @param      quiz     The quiz object
      */
     public static void displayScore(final Quiz quiz) {
-        // write your code here to display the score report
+        int totalScore = 0;
+        for (int i = 0; i < quiz.size(); i++) {
+            Question question = quiz.getQuestion(i);
+            System.out.println(question.getQuestionText());
+            if (question.getCorrectAnswer() == question.getResponse()) {
+                System.out.println(" Correct Answer! - Marks Awarded: "
+                                   + question.getMaxMarks());
+                totalScore += question.getMaxMarks();
+            } else {
+                System.out.println(" Wrong Answer! - Penalty: "
+                                   + question.getPenalty());
+                totalScore += question.getMaxMarks();
+            }
+        }
+        System.out.println("Total Score: " + totalScore);
     }
 
     private static Question isValidQuestion(final String question)

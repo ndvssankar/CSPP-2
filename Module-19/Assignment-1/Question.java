@@ -5,17 +5,17 @@
 class Question {
     private String questionText;
     private String[] choices;
-    private int correctAnsower;
+    private int correctAnswer;
     private int maxMarks;
     private int penalty;
     private int response;
 
     public Question(final String questionText,
-                    final String[] choices, final int correctAnsower,
+                    final String[] choices, final int correctAnswer,
                     final int maxMarks, final int penalty) {
         this.questionText = questionText;
         this.choices = choices;
-        this.correctAnsower = correctAnsower;
+        this.correctAnswer = correctAnswer;
         this.maxMarks = maxMarks;
         this.penalty = penalty;
     }
@@ -36,12 +36,12 @@ class Question {
         this.maxMarks = maxMarks;
     }
 
-    public int getCorrectAnsower() {
-        return correctAnsower;
+    public int getCorrectAnswer() {
+        return correctAnswer;
     }
 
-    public void setCorrectAnsower(int correctAnsower) {
-        this.correctAnsower = correctAnsower;
+    public void setCorrectAnswer(int correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
 
     public String[] getChoices() {
@@ -69,6 +69,12 @@ class Question {
     }
 
     public String toString() {
-        return null;
+        StringBuffer sb = new StringBuffer();
+        sb.append(this.questionText + " (");
+        sb.append(this.maxMarks + ")\n");
+        for (int i = 0; i < this.choices.length-1; i++)
+            sb.append(choices[i] + "\t");
+        sb.append(this.choices[this.choices.length-1] + "\n");
+        return sb.toString();
     }
 }
