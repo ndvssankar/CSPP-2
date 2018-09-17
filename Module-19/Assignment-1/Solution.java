@@ -105,12 +105,15 @@ public final class Solution {
     private static Question isValidQuestion(final String question)
     throws Exception {
         String[] tokens = question.split(":");
+        if (tokens.length < 5) {
+            throw new Exception("Error! Malformed question");
+        }
         String questionText = tokens[0];
         String[] choices = tokens[1].split(",");
         int correctAnswer = Integer.parseInt(tokens[2]);
         int maxMarks = Integer.parseInt(tokens[3]);
         int penalty = Integer.parseInt(tokens[4]);
-        if (tokens.length < 5) {
+        if (questionText.length() == 0) {
             throw new Exception("Error! Malformed question");
         } else if (choices.length < 2) {
             throw new Exception(tokens[0] + " does not have enough answer choices");
