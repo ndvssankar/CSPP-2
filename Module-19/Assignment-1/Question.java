@@ -70,7 +70,7 @@ class Question {
 
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        sb.append(this.questionText + " (");
+        sb.append(this.questionText + "(");
         sb.append(this.maxMarks + ")\n");
         for (int i = 0; i < this.choices.length-1; i++)
             sb.append(choices[i] + "\t");
