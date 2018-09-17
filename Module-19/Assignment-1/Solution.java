@@ -36,6 +36,7 @@ public final class Solution {
                     loadQuestions(s, q, Integer.parseInt(tokens[1]));
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
+                    return;
                 }
                 break;
             case "START_QUIZ":
@@ -118,7 +119,7 @@ public final class Solution {
             } else {
                 System.out.println(" Wrong Answer! - Penalty: "
                                    + question.getPenalty());
-                totalScore += question.getMaxMarks();
+                totalScore += question.getPenalty();
             }
         }
         System.out.println("Total Score: " + totalScore);
