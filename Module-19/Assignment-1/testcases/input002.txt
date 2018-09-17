@@ -1,0 +1,11 @@
+LOAD_QUESTIONS 4
+question text 1:choice 1,choice 2,choice 3,choice 4:3:1:-4
+question text 2:choice 1,choice 2,choice 3,choice 4:1:2:-3
+question text 3:choice 1,choice 2,choice 3,choice 4:2:3:-2
+question text 4:choice 1,choice 2,choice 3,choice 4:4:4:-1
+START_QUIZ 4
+choice 3
+choice 3
+choice 3
+choice 3
+SCORE_REPORT

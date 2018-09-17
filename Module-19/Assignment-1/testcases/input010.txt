@@ -1,0 +1,5 @@
+LOAD_QUESTIONS 1
+question about sony:choice 4,choice 2:1:-1:-1
+START_QUIZ 1
+choice 4
+SCORE_REPORT

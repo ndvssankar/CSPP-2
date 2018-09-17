@@ -1,0 +1,5 @@
+LOAD_QUESTIONS 1
+question text 1:choice 1,choice 2,choice 3,choice 4:6:1:-1
+START_QUIZ 1
+choice 1
+SCORE_REPORT

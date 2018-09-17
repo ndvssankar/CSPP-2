@@ -1,0 +1,23 @@
+LOAD_QUESTIONS 10
+question a:choice a,choice b,choice c,choice d:1:1:0
+question b:choice a,choice b,choice c,choice d:3:2:0
+question c:choice a,choice b,choice c,choice d:2:3:0
+question d:choice a,choice b,choice c,choice d:1:4:0
+question e:choice a,choice b,choice c,choice d:4:1:0
+question f:choice a,choice b,choice c,choice d:3:2:0
+question g:choice a,choice b,choice c,choice d:1:3:0
+question h:choice a,choice b,choice c,choice d:1:4:0
+question i:choice a,choice b,choice c,choice d:4:1:0
+question j:choice a,choice b,choice c,choice d:2:2:0
+START_QUIZ 10
+choice c
+choice a
+choice b
+choice d
+choice c
+choice a
+choice b
+choice d
+choice c
+choice a
+SCORE_REPORT
