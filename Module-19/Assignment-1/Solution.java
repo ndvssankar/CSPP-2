@@ -4,9 +4,9 @@ import java.util.Scanner;
  * Solution class for code-eval.
  */
 public final class Solution {
-     /**
-     * Constructs the object.
-     */
+    /**
+    * Constructs the object.
+    */
     private Solution() {
         // leave this blank
     }
@@ -16,19 +16,19 @@ public final class Solution {
      * @param      args  The arguments
      */
     public static void main(final String[] args) throws Exception {
-         // instantiate this Quiz
+        // instantiate this Quiz
         Quiz q = new Quiz();
-         // code to read the test cases input file
+        // code to read the test cases input file
         Scanner s = new Scanner(System.in);
         // check if there is one more line to process
         while (s.hasNext()) {
             // read the line
             String line = s.nextLine();
-             // split the line using space
+            // split the line using space
             String[] tokens = line.split(" ");
-              // based on the list operation invoke the corresponding method
+            // based on the list operation invoke the corresponding method
             switch (tokens[0]) {
-                case "LOAD_QUESTIONS":
+            case "LOAD_QUESTIONS":
                 System.out.println("|----------------|");
                 System.out.println("| Load Questions |");
                 System.out.println("|----------------|");
@@ -38,19 +38,19 @@ public final class Solution {
                     System.out.println(ex.getMessage());
                 }
                 break;
-                case "START_QUIZ":
+            case "START_QUIZ":
                 System.out.println("|------------|");
                 System.out.println("| Start Quiz |");
                 System.out.println("|------------|");
                 startQuiz(s, q, Integer.parseInt(tokens[1]));
                 break;
-                case "SCORE_REPORT":
+            case "SCORE_REPORT":
                 System.out.println("|--------------|");
                 System.out.println("| Score Report |");
                 System.out.println("|--------------|");
                 displayScore(q);
                 break;
-                default:
+            default:
                 break;
             }
         }
@@ -62,7 +62,8 @@ public final class Solution {
      * @param      quiz           The quiz object
      * @param      questionCount  The question count
      */
-    public static void loadQuestions(final Scanner s, final Quiz quiz, final int questionCount) throws Exception {
+    public static void loadQuestions(final Scanner s, final Quiz quiz, final int questionCount)
+    throws Exception {
         // write your code here to read the questions from the console
         // tokenize the question line and create the question object
         // add the question objects to the quiz class
@@ -101,7 +102,7 @@ public final class Solution {
         // write your code here to display the score report
     }
 
-    private static Question isValidQuestion(final String question) 
+    private static Question isValidQuestion(final String question)
     throws Exception {
         String[] tokens = question.split(":");
         String questionText = tokens[0];
@@ -115,12 +116,12 @@ public final class Solution {
             throw new Exception(tokens[0] + " does not have enough answer choices");
         } else if (correctAnswer < 1 || correctAnswer > choices.length) {
             throw new Exception("Error! Correct answer choice number is out of range for " + questionText);
-        } else if (maxMarks > 0) {
+        } else if (maxMarks < 0) {
             throw new Exception("Invalid max marks for " + questionText);
-        } else if (penalty < 0) {
+        } else if (penalty > 0) {
             throw new Exception("Invalid penalty for " + questionText);
         }
         return new Question(questionText, choices, correctAnswer,
-            maxMarks, penalty);
+                            maxMarks, penalty);
     }
 }
