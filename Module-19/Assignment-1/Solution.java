@@ -79,11 +79,7 @@ public final class Solution {
             throw new Exception("Quiz does not have questions");
         }
         for (int i = 0; i < questionCount; i++) {
-            try {
-                quiz.addQuestion(isValidQuestion(s.nextLine()));
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
+            quiz.addQuestion(isValidQuestion(s.nextLine()));
         }
     }
 
