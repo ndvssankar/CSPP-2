@@ -35,6 +35,7 @@ public final class Solution {
                 System.out.println("|----------------|");
                 try {
                     loadQuestions(s, q, Integer.parseInt(tokens[1]));
+                    System.out.println(q.size() + " are added to the quiz");
                     flag = true;
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
@@ -84,7 +85,6 @@ public final class Solution {
                 System.out.println(ex.getMessage());
             }
         }
-        System.out.println(quiz.size() + " are added to the quiz");
     }
 
     /**
@@ -103,7 +103,6 @@ public final class Solution {
             String choice = s.nextLine();
             String[] choices = quiz.getQuestion(i).getChoices();
             String str = choices[quiz.getQuestion(i).getCorrectAnswer()-1];
-            System.out.println(choice + " " + str);
             if (choice.equals(str)) {
                 quiz.getQuestion(i).setResponse(quiz.getQuestion(i).getCorrectAnswer());
             }
