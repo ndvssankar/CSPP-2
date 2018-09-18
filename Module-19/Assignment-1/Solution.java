@@ -20,6 +20,7 @@ public final class Solution {
         Quiz q = new Quiz();
         // code to read the test cases input file
         Scanner s = new Scanner(System.in);
+        boolean flag = false;
         // check if there is one more line to process
         while (s.hasNext()) {
             // read the line
@@ -34,22 +35,27 @@ public final class Solution {
                 System.out.println("|----------------|");
                 try {
                     loadQuestions(s, q, Integer.parseInt(tokens[1]));
+                    flag = true;
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
-                    return;
                 }
                 break;
             case "START_QUIZ":
                 System.out.println("|------------|");
                 System.out.println("| Start Quiz |");
                 System.out.println("|------------|");
-                startQuiz(s, q, Integer.parseInt(tokens[1]));
+                if (flag)
+                    startQuiz(s, q, Integer.parseInt(tokens[1]));
                 break;
             case "SCORE_REPORT":
                 System.out.println("|--------------|");
                 System.out.println("| Score Report |");
                 System.out.println("|--------------|");
-                displayScore(q);
+                if (flag) {
+                    displayScore(q);
+                } else {
+                    System.out.println("Total Score: " + 0);
+                }
                 break;
             default:
                 break;
@@ -94,11 +100,13 @@ public final class Solution {
         // store the user respones in the quiz object
         for (int i = 0; i < quiz.size(); i++) {
             System.out.println(quiz.getQuestion(i));
-        }
-        for (int i = 0; i < answerCount; i++) {
-            String[] words = s.nextLine().split(" ");
-            quiz.getQuestion(i).setResponse(
-                Integer.parseInt(words[1]));
+            String choice = s.nextLine();
+            String[] choices = quiz.getQuestion(i).getChoices();
+            String str = choices[quiz.getQuestion(i).getCorrectAnswer()-1];
+            System.out.println(choice + " " + str);
+            if (choice.equals(str)) {
+                quiz.getQuestion(i).setResponse(quiz.getQuestion(i).getCorrectAnswer());
+            }
         }
     }
 
@@ -112,6 +120,7 @@ public final class Solution {
         for (int i = 0; i < quiz.size(); i++) {
             Question question = quiz.getQuestion(i);
             System.out.println(question.getQuestionText());
+            // System.out.println(question.getResponse() + " :: " +question.getCorrectAnswer());
             if (question.getCorrectAnswer() == question.getResponse()) {
                 System.out.println(" Correct Answer! - Marks Awarded: "
                                    + question.getMaxMarks());
