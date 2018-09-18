@@ -153,11 +153,11 @@ public final class Solution {
         if (qText.length() == 0) {
             throw new Exception("Error! Malformed question");
         } else if (choices.length < 2) {
-            throw new Exception(tokens[0] 
+            throw new Exception(tokens[0]
                 + " does not have enough answer choices");
         } else if (correctAnswer < 1 || correctAnswer > choices.length) {
             throw new Exception(
-                "Error! Correct answer choice number is out of range for " 
+                "Error! Correct answer choice number is out of range for "
                 + qText);
         } else if (maxMarks < 0) {
             throw new Exception("Invalid max marks for " + qText);
