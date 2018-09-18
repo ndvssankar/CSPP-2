@@ -11,7 +11,7 @@ public final class Solution {
         // leave this blank
     }
     /**
-     * main to demonstrate quiz
+     * main to demonstrate quiz.
      * @param  args      command line args.
      * @throws Exception throws exception.
      */
@@ -45,8 +45,9 @@ public final class Solution {
                 System.out.println("|------------|");
                 System.out.println("| Start Quiz |");
                 System.out.println("|------------|");
-                if (flag)
+                if (flag) {
                     startQuiz(s, q, Integer.parseInt(tokens[1]));
+                }
                 break;
             case "SCORE_REPORT":
                 System.out.println("|--------------|");
@@ -118,8 +119,8 @@ public final class Solution {
         for (int i = 0; i < quiz.size(); i++) {
             Question question = quiz.getQuestion(i);
             System.out.println(question.getQuestionText());
-            if (question.getCorrectAnswer() ==
-                    question.getResponse()) {
+            if (question.getCorrectAnswer()
+                == question.getResponse()) {
                 System.out.println(" Correct Answer! - Marks Awarded: "
                                    + question.getMaxMarks());
                 totalScore += question.getMaxMarks();
@@ -133,7 +134,7 @@ public final class Solution {
     }
 
     /**
-     * check if the question is valid or not
+     * check if the question is valid or not.
      * @param  question  question.
      * @return Question  question object.
      * @throws Exception throws exception.
@@ -152,10 +153,12 @@ public final class Solution {
         if (qText.length() == 0) {
             throw new Exception("Error! Malformed question");
         } else if (choices.length < 2) {
-            throw new Exception(tokens[0] + " does not have enough answer choices");
+            throw new Exception(tokens[0] 
+                + " does not have enough answer choices");
         } else if (correctAnswer < 1 || correctAnswer > choices.length) {
             throw new Exception(
-                "Error! Correct answer choice number is out of range for " + qText);
+                "Error! Correct answer choice number is out of range for " 
+                + qText);
         } else if (maxMarks < 0) {
             throw new Exception("Invalid max marks for " + qText);
         } else if (penalty > 0) {
