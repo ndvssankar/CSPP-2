@@ -54,8 +54,6 @@ public final class Solution {
                 System.out.println("|--------------|");
                 if (flag) {
                     displayScore(q);
-                } else {
-                    System.out.println("Total Score: " + 0);
                 }
                 break;
             default:
